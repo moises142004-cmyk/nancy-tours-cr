@@ -15,7 +15,7 @@ Three layers:
 1. `styles.css` — design tokens only (paleta, tipografía variables). Keep slim.
 2. `chrome.css` — anything that appears on EVERY page (nav, footer, buttons, mobile menu, tour cards, WhatsApp float, eyebrow + h2 base styles, marquee).
 3. `<page>.css` — page-specific styles, prefixed with a 2-letter page code:
-   - `home.css` → no prefix (it owns the home-specific hero, value cards, audio chip, etc.)
+   - `home.css` → no prefix (paired with `index.html`; the home page file is named index.html for `/` routing, but its styles + JS keep the semantic `home` name)
    - `tours.css` → `.tp-*` (Tours Page)
    - `nancy.css` → `.np-*` (Nancy Page)
    - `contacto.css` → `.cp-*` (Contact Page)

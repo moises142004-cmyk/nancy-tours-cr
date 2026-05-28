@@ -8,7 +8,7 @@ Sitio web de Nancy Villalobos — Licenciada en Turismo, guía profesional con 1
 
 Static HTML, CSS, vanilla JS. No build step, no framework. Ships as-is.
 
-- 5 pages: `home.html`, `tours.html`, `sobre-nancy.html`, `contacto.html`, `tour-detail.html`
+- 5 pages: `index.html`, `tours.html`, `sobre-nancy.html`, `contacto.html`, `tour-detail.html`
 - Shared chrome (nav, footer, buttons, tour cards): `chrome.css` + `chrome.js`
 - Design tokens: `styles.css`
 - Per-page CSS: `home.css`, `tours.css`, `nancy.css`, `contacto.css`, `tour-detail.css`
@@ -18,7 +18,7 @@ Static HTML, CSS, vanilla JS. No build step, no framework. Ships as-is.
 
 ```bash
 python3 -m http.server 8765
-# open http://127.0.0.1:8765/home.html
+# open http://127.0.0.1:8765/
 ```
 
 Any static file server works (`npx serve`, `caddy file-server`, etc.). No npm install, no build.
@@ -38,7 +38,7 @@ vercel promote <url>    # promote preview to production
 
 ```
 .
-├── home.html, tours.html, sobre-nancy.html, contacto.html, tour-detail.html
+├── index.html, tours.html, sobre-nancy.html, contacto.html, tour-detail.html
 ├── styles.css           # design tokens (paleta, tipografía)
 ├── chrome.css/.js       # shared nav, footer, mobile menu, lang switcher, buttons, tour cards
 ├── home.css/.js         # home-only sections (hero, value cards, audio chip, about, CTA)
