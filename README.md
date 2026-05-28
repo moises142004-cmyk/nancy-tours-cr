@@ -8,11 +8,11 @@ Sitio web de Nancy Villalobos — Licenciada en Turismo, guía profesional con 1
 
 Static HTML, CSS, vanilla JS. No build step, no framework. Ships as-is.
 
-- 5 pages: `index.html`, `tours.html`, `sobre-nancy.html`, `contacto.html`, `tour-detail.html`
-- Shared chrome (nav, footer, buttons, tour cards): `chrome.css` + `chrome.js`
-- Design tokens: `styles.css`
-- Per-page CSS: `home.css`, `tours.css`, `nancy.css`, `contacto.css`, `tour-detail.css`
-- Per-page JS where needed: `home.js` (hero video crossfade, value-card tilt, jungle audio), `contacto.js` (form → WhatsApp), `tour-detail.js` + `tours-data.js` (reads `?id=` from URL)
+- **HTML at root** — 5 pages so URLs stay clean on Vercel (`/`, `/tours`, `/sobre-nancy`, `/contacto`, `/tour-detail?id=…`)
+- **`css/`** — design tokens + shared chrome + one stylesheet per page
+- **`js/`** — shared chrome JS + per-page interactives + tour data
+- **`img/`** — production images, hero video, icons, logos
+- **`design/`** — brand exploration (kept for history; excluded from Vercel)
 
 ## Run locally
 
@@ -38,32 +38,59 @@ vercel promote <url>    # promote preview to production
 
 ```
 .
-├── index.html, tours.html, sobre-nancy.html, contacto.html, tour-detail.html
-├── styles.css           # design tokens (paleta, tipografía)
-├── chrome.css/.js       # shared nav, footer, mobile menu, lang switcher, buttons, tour cards
-├── home.css/.js         # home-only sections (hero, value cards, audio chip, about, CTA)
-├── tours.css            # tours catalog
-├── nancy.css            # sobre-nancy
-├── contacto.css/.js     # contacto + form-to-WhatsApp
-├── tour-detail.css/.js  # detail template, reads ?id= from URL
-├── tours-data.js        # tour data (slug → fields)
-├── img/                 # production images (logos, hero video, tour photos)
-├── design/              # brand exploration — NOT deployed
-│   ├── *.jsx            # React+Babel preview canvas, direction A/B/C, palette/logo concepts
-│   ├── Nancy Tours Costa Rica.html  # canvas index page
-│   └── uploads/         # client brief, WhatsApp photos, AI-generated references
-├── vercel.json
+├── index.html              # home (Cinematic Wild)
+├── tours.html              # catalog with filter bar
+├── sobre-nancy.html        # bio + credentials + gallery
+├── contacto.html           # form + payment methods + FAQ
+├── tour-detail.html        # template; populated from ?id=<slug>
+│
+├── css/
+│   ├── tokens.css          # CSS custom properties (palette, type)
+│   ├── chrome.css          # shared nav, footer, buttons, tour cards, marquee, wa-float
+│   ├── home.css            # home-only sections (hero, value cards, audio chip, about, CTA)
+│   ├── tours.css           # tours catalog                       — .tp-* prefix
+│   ├── nancy.css           # sobre-nancy                          — .np-* prefix
+│   ├── contacto.css        # contacto                             — .cp-* prefix
+│   └── tour-detail.css     # tour detail                          — .td-* prefix
+│
+├── js/
+│   ├── chrome.js           # mobile menu, ES/EN language switcher
+│   ├── home.js             # hero video crossfade, value-card tilt, jungle audio
+│   ├── contacto.js         # form → WhatsApp prefill
+│   ├── tour-detail.js      # reads ?id= and populates [data-td] slots
+│   └── tours-data.js       # window.TOURS = { slug: { ...fields }, default: {...} }
+│
+├── img/                    # logos, hero-loop.mp4, tour photos, icons
+├── design/                 # brand exploration — NOT deployed (.vercelignore)
+│   ├── *.jsx               # React+Babel preview canvas, directions A/B/C, palette/logo concepts
+│   ├── Nancy Tours Costa Rica.html
+│   └── uploads/            # client brief, WhatsApp references, AI-generated images
+│
+├── vercel.json             # cleanUrls, cache headers
+├── .editorconfig           # editor consistency
 ├── .vercelignore
 ├── .gitignore
-├── CLAUDE.md            # context for AI assistants working on the repo
+├── CLAUDE.md               # context for AI assistants working on the repo
 └── README.md
 ```
 
+CSS load order (every page): `tokens.css` → `chrome.css` → `<page>.css`. JS load order: `chrome.js` first, then page-specific scripts.
+
 ## Adding a new tour
 
-1. Add an entry to `tours-data.js` keyed by slug (e.g. `'volcan-poas'`)
+1. Add an entry to `js/tours-data.js` keyed by slug (e.g. `'volcan-poas'`)
 2. Add a card to `tours.html` (under the appropriate category section)
 3. Link to `tour-detail.html?id=<slug>` — the detail page reads the data via JS
+
+## Cache-busting CSS or JS
+
+When you change a shared file (`css/tokens.css`, `css/chrome.css`, `js/chrome.js`), bump the `?v=N` query in every HTML page's reference to force browsers off the cached copy.
+
+```html
+<link rel="stylesheet" href="css/chrome.css?v=4" />
+```
+
+Per-page files don't need versions — they change with their HTML and the browser revalidates.
 
 ## Brand
 
@@ -79,4 +106,5 @@ vercel promote <url>    # promote preview to production
 
 ---
 
+© 2026 Nancy Tours Costa Rica · All rights reserved.
 Diseño y desarrollo: [Dream[OS]](https://dreamos.dev)

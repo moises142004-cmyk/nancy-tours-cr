@@ -8,31 +8,56 @@ Vanilla HTML + CSS + JS. No bundler, no framework, no npm. Open the file or serv
 
 **Do NOT introduce a build step, framework, or bundler unless the client asks for it.** This is intentionally low-tech so it's maintainable by anyone who can edit a `.html` file.
 
+## Repo layout
+
+```
+.
+├── index.html, tours.html, sobre-nancy.html, contacto.html, tour-detail.html  ← root for clean URLs
+├── css/
+│   ├── tokens.css      ← CSS custom properties only (palette, type)
+│   ├── chrome.css      ← shared chrome (loaded on every page)
+│   └── <page>.css      ← one per page, prefixed class names
+├── js/
+│   ├── chrome.js       ← shared chrome (loaded on every page)
+│   ├── <page>.js       ← per-page interactives where needed
+│   └── tours-data.js   ← window.TOURS (consumed by tour-detail.js)
+├── img/                ← production media
+├── design/             ← brand exploration, NOT deployed (.vercelignore)
+├── vercel.json, .editorconfig, .vercelignore, .gitignore
+├── README.md, CLAUDE.md
+```
+
+CSS load order (every page): `css/tokens.css` → `css/chrome.css` → `css/<page>.css`. JS load order: `js/chrome.js` first, then page-specific scripts.
+
 ## CSS architecture
 
 Three layers:
 
-1. `styles.css` — design tokens only (paleta, tipografía variables). Keep slim.
-2. `chrome.css` — anything that appears on EVERY page (nav, footer, buttons, mobile menu, tour cards, WhatsApp float, eyebrow + h2 base styles, marquee).
-3. `<page>.css` — page-specific styles, prefixed with a 2-letter page code:
-   - `home.css` → no prefix (paired with `index.html`; the home page file is named index.html for `/` routing, but its styles + JS keep the semantic `home` name)
-   - `tours.css` → `.tp-*` (Tours Page)
-   - `nancy.css` → `.np-*` (Nancy Page)
-   - `contacto.css` → `.cp-*` (Contact Page)
-   - `tour-detail.css` → `.td-*` (Tour Detail)
+1. **`css/tokens.css`** — design tokens only (palette, type variables). Keep slim. Don't add component styles here.
+2. **`css/chrome.css`** — anything that appears on EVERY page (nav, footer, buttons, mobile menu, tour cards, WhatsApp float, eyebrow + h2 base styles, marquee).
+3. **`css/<page>.css`** — page-specific styles, prefixed with a 2-letter page code:
+   - `css/home.css` → no prefix (paired with `index.html`; the home page file is `index.html` for `/` routing, but its styles + JS keep the semantic `home` name)
+   - `css/tours.css` → `.tp-*` (Tours Page)
+   - `css/nancy.css` → `.np-*` (Nancy Page)
+   - `css/contacto.css` → `.cp-*` (Contact Page)
+   - `css/tour-detail.css` → `.td-*` (Tour Detail)
 
-When adding shared elements, put them in `chrome.css`. When a class only appears on one page, keep it page-local.
+When adding shared elements, put them in `css/chrome.css`. When a class only appears on one page, keep it page-local. **Never put visual styles in `tokens.css`** — it's tokens-only by design (we hit a scroll-lock bug from leftover layout rules there).
 
 ## JS architecture
 
-- `chrome.js` — mobile menu toggle + ES/EN language switcher. Loaded on every page.
-- `home.js` — hero video crossfade, value-card 3D tilt with mouse-tracked specular highlight, jungle audio chip (procedural birds + filtered noise via Web Audio).
-- `contacto.js` — form submit handler that opens WhatsApp with a pre-filled message.
-- `tour-detail.js` + `tours-data.js` — reads `?id=<slug>` from URL, looks up `window.TOURS[slug]` from `tours-data.js`, populates `[data-td="<field>"]` and `[data-td-slot="<list>"]` placeholders. Falls back to `TOURS.default` if the slug is missing.
+- `js/chrome.js` — mobile menu toggle (with focus trap) + ES/EN language switcher. Loaded on every page.
+- `js/home.js` — hero video crossfade, value-card 3D tilt with mouse-tracked specular highlight, jungle audio chip (procedural birds + filtered noise via Web Audio).
+- `js/contacto.js` — form submit handler that opens WhatsApp with a pre-filled message.
+- `js/tour-detail.js` + `js/tours-data.js` — reads `?id=<slug>` from URL, looks up `window.TOURS[slug]` from `tours-data.js`, populates `[data-td="<field>"]` and `[data-td-slot="<list>"]` placeholders. Falls back to `TOURS.default` if the slug is missing.
+
+## Cache-busting
+
+Shared files (`css/tokens.css`, `css/chrome.css`, `js/chrome.js`) carry a `?v=N` query in HTML refs. When you change one, bump the version in every HTML page that references it. Per-page files don't need versions since they change with their HTML and the browser revalidates.
 
 ## Adding a new tour
 
-1. Add the entry to `tours-data.js` (one object per slug, fields: `title, loc, elev, tag, hero, nextDate, duration, diff, cupo, minAge, price, lead, blurb, itinerary, incl, excl, bring, faq, related`).
+1. Add the entry to `js/tours-data.js` (one object per slug, fields: `title, loc, elev, tag, hero, nextDate, duration, diff, cupo, minAge, price, lead, blurb, itinerary, incl, excl, bring, faq, related`).
 2. Add a card to `tours.html` under the appropriate category section (`<h2 class="tp-category-h">`).
 3. Link to `tour-detail.html?id=<slug>` everywhere.
 
@@ -46,7 +71,7 @@ Brand exploration — kept for history, NOT deployed (excluded via `.vercelignor
 - `tours-page.jsx`, `nancy-page.jsx`, `contact-page.jsx`, `tour-detail.jsx` — original React component for each page; ported to static HTML.
 - `uploads/` — client brief docx, original Nancy photos, WhatsApp references, generated brand imagery. Useful for context; not production assets.
 
-If you need to revise the design, work in static HTML/CSS in the root. The JSX in `design/` is the historical source, not the live spec.
+If you need to revise the design, work in static HTML/CSS at the root. The JSX in `design/` is the historical source, not the live spec.
 
 ## Brand voice + content rules
 
@@ -66,7 +91,7 @@ If you need to revise the design, work in static HTML/CSS in the root. The JSX i
 
 ## Vercel deployment
 
-- Project should be linked to GitHub repo (`moises142004-cmyk/nancy-tours`).
+- Project linked to GitHub repo (`moises142004-cmyk/nancy-tours-cr`). Auto-deploys on push to `main`.
 - `vercel.json` sets clean URLs — visit `/tours` not `/tours.html`.
 - `.vercelignore` excludes `design/` from the deployed bundle.
 - The `nt-lang` localStorage key persists ES/EN preference — clear it to reset.
