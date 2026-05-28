@@ -1,0 +1,387 @@
+/* Nancy Tours Costa Rica — Contacto page */
+
+.cp-eye {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #b5532e;
+  margin-bottom: 18px;
+}
+
+/* Hero */
+.cp-hero {
+  position: relative;
+  min-height: 80vh;
+  overflow: hidden;
+}
+.cp-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-position: center 40%;
+}
+.cp-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,13,10,0.55) 0%, rgba(13,13,10,0.92) 100%);
+}
+.cp-hero-inner {
+  position: absolute;
+  bottom: 80px;
+  left: 48px;
+  right: 48px;
+  color: #faf5e7;
+  max-width: 760px;
+}
+.cp-hero-eye {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 1px solid rgba(250,245,231,0.3);
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+.cp-hero-h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 104px;
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: #faf5e7;
+}
+.cp-hero-h1 em { color: #b5532e; font-style: normal; }
+.cp-hero-lead {
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 540px;
+  margin-top: 24px;
+  color: rgba(250,245,231,0.85);
+}
+
+/* Quick cards */
+.cp-quick {
+  padding: 64px 48px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.cp-card {
+  background: #fff;
+  border: 1px solid rgba(31,58,43,0.1);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-decoration: none;
+  color: #1a160e;
+  transition: transform .15s, border-color .15s;
+}
+.cp-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent, #b5532e);
+}
+.cp-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(181, 83, 46, 0.12);
+  background: color-mix(in srgb, var(--accent, #b5532e) 12%, transparent);
+  color: var(--accent, #b5532e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cp-card-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #6b6256;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  margin-bottom: 6px;
+}
+.cp-card-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1a160e;
+  word-break: break-word;
+}
+.cp-card-sub {
+  font-size: 12px;
+  color: #6b6256;
+  margin-top: 4px;
+}
+.cp-card-cta {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent, #b5532e);
+}
+
+/* Form + Pay */
+.cp-form-section {
+  padding: 64px 48px 96px;
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 56px;
+}
+.cp-h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #1a160e;
+  margin: 0 0 16px;
+  text-wrap: pretty;
+}
+.cp-p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #3a3328;
+  max-width: 540px;
+}
+
+.cp-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 28px;
+  margin-bottom: 18px;
+}
+.cp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cp-field--wide { width: 100%; }
+.cp-field label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #6b6256;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+.cp-field input,
+.cp-field select,
+.cp-field textarea {
+  background: #fff;
+  border: 1px solid rgba(31,58,43,0.15);
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #1a160e;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  outline: none;
+  border-radius: 0;
+}
+.cp-field input:focus,
+.cp-field select:focus,
+.cp-field textarea:focus {
+  border-color: #b5532e;
+  box-shadow: 0 0 0 3px rgba(181,83,46,0.12);
+}
+.cp-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.cp-field select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #1a160e 50%),
+    linear-gradient(135deg, #1a160e 50%, transparent 50%);
+  background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 40px;
+}
+
+.cp-form-footer {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.cp-check {
+  font-size: 13px;
+  color: #3a3328;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Pay column */
+.cp-pay-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 24px;
+}
+.cp-pay {
+  background: #fff;
+  border: 1px solid rgba(31,58,43,0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cp-pay-label {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a160e;
+}
+.cp-pay-sub {
+  font-size: 12px;
+  color: #6b6256;
+  margin-top: 4px;
+}
+.cp-pay-chip {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  background: #1f3a2b;
+  color: #faf5e7;
+  padding: 8px 12px;
+  align-self: flex-start;
+}
+
+.cp-policy {
+  background: #faf0db;
+  border: 1px solid #c99a3f;
+  padding: 22px;
+  margin-top: 28px;
+}
+.cp-policy-h {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a160e;
+}
+.cp-policy ul {
+  font-size: 13px;
+  color: #3a3328;
+  line-height: 1.7;
+  margin: 0;
+  padding-left: 18px;
+}
+
+/* Map */
+.cp-map {
+  position: relative;
+  height: 380px;
+}
+.cp-map-bg {
+  position: absolute;
+  inset: 0;
+}
+.cp-map-card {
+  position: absolute;
+  top: 50px;
+  left: 48px;
+  max-width: 380px;
+  background: #fff;
+  padding: 32px;
+  border: 1px solid rgba(31,58,43,0.1);
+}
+.cp-map-h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 8px 0 12px;
+  color: #1a160e;
+}
+.cp-map-p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #3a3328;
+  margin: 0;
+}
+.cp-map-link {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #b5532e;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* FAQ */
+.cp-faq {
+  background: #1a160e;
+  color: #faf5e7;
+  padding: 96px 48px;
+}
+.cp-faq-inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.cp-faq .cp-eye { color: #b5532e; }
+.cp-faq-h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #faf5e7;
+  margin: 0 0 40px;
+  text-wrap: pretty;
+}
+.cp-faq-item {
+  border-top: 1px solid rgba(250,245,231,0.12);
+  padding: 24px 0;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+.cp-faq-q {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #faf5e7;
+  letter-spacing: -0.01em;
+}
+.cp-faq-a {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(250,245,231,0.75);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cp-quick { grid-template-columns: 1fr 1fr; }
+  .cp-form-section { grid-template-columns: 1fr; gap: 56px; padding: 56px 48px; }
+  .cp-pay-grid { grid-template-columns: 1fr 1fr; }
+  .cp-hero-h1 { font-size: 72px; }
+}
+@media (max-width: 720px) {
+  .cp-hero { min-height: 60vh; }
+  .cp-hero-inner { bottom: 32px; left: 20px; right: 20px; }
+  .cp-hero-h1 { font-size: 48px; }
+  .cp-quick { padding: 40px 20px 0; grid-template-columns: 1fr; }
+  .cp-form-section { padding: 48px 20px; }
+  .cp-form-grid { grid-template-columns: 1fr; }
+  .cp-pay-grid { grid-template-columns: 1fr; }
+  .cp-form-footer { flex-direction: column; align-items: stretch; }
+  .cp-form-footer .nt-btn { width: 100%; justify-content: center; }
+  .cp-map { height: auto; min-height: 380px; }
+  .cp-map-card { position: relative; top: 0; left: 0; max-width: none; margin: 32px 20px; padding: 24px; }
+  .cp-map-h2 { font-size: 26px; }
+  .cp-faq { padding: 56px 20px; }
+  .cp-faq-h2 { font-size: 32px; }
+  .cp-faq-item { grid-template-columns: 1fr; gap: 12px; }
+  .cp-faq-q { font-size: 18px; }
+  .cp-h2 { font-size: 32px; }
+}

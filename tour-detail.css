@@ -1,0 +1,362 @@
+/* Nancy Tours Costa Rica — Tour detail page */
+
+/* Hero */
+.td-hero {
+  position: relative;
+  min-height: 80vh;
+  overflow: hidden;
+}
+.td-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-position: center 35%;
+}
+.td-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,13,10,0.4) 0%, rgba(13,13,10,0.92) 100%);
+}
+.td-hero-inner {
+  position: absolute;
+  bottom: 80px;
+  left: 48px;
+  right: 48px;
+  color: #faf5e7;
+  max-width: 800px;
+}
+.td-crumb {
+  display: inline-block;
+  font-size: 13px;
+  color: rgba(250,245,231,0.8);
+  text-decoration: none;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.td-crumb:hover { color: #b5532e; }
+.td-hero-eye {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 1px solid rgba(250,245,231,0.3);
+  border-radius: 999px;
+  margin-bottom: 20px;
+  color: #b5532e;
+  background: rgba(13,13,10,0.4);
+}
+.td-hero-h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 120px;
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: #faf5e7;
+}
+.td-hero-meta {
+  margin-top: 24px;
+  font-size: 16px;
+  color: rgba(250,245,231,0.85);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.td-hero-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #b5532e;
+}
+
+/* Body */
+.td-body {
+  padding: 80px 48px;
+  display: grid;
+  grid-template-columns: 7fr 4fr;
+  gap: 64px;
+  background: #faf5e7;
+  max-width: 1280px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+.td-body-main { color: #1a160e; }
+.td-lead {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #1a160e;
+  font-weight: 400;
+  margin-top: 0;
+}
+.td-blurb {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #3a3328;
+  margin-top: 24px;
+}
+.td-h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #1a160e;
+  margin-top: 56px;
+  margin-bottom: 20px;
+}
+.td-h2--light { color: #faf5e7; margin-top: 8px; }
+
+.td-day-block {
+  padding-top: 24px;
+  border-top: 1px solid rgba(31,58,43,0.1);
+  margin-bottom: 0;
+}
+.td-day-label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #b5532e;
+  margin-bottom: 12px;
+}
+.td-day-list {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #1a160e;
+  padding-left: 18px;
+  margin: 0 0 28px;
+}
+
+.td-incl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.td-h3-incl {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.td-h3-incl--y { color: #1f3a2b; }
+.td-h3-incl--n { color: #b5532e; }
+.td-check-list {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #3a3328;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+.td-check-list li::before {
+  content: "·";
+  color: #b5532e;
+  margin-right: 10px;
+  font-weight: 700;
+}
+
+.td-bring-list {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #3a3328;
+  column-count: 2;
+  column-gap: 32px;
+  padding-left: 18px;
+}
+
+.td-faq-item {
+  padding: 22px 0;
+  border-top: 1px solid rgba(31,58,43,0.1);
+}
+.td-faq-q {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a160e;
+  margin: 0 0 8px;
+}
+.td-faq-a {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #3a3328;
+  margin: 0;
+}
+
+/* Booking card */
+.td-book {
+  background: #fff;
+  border: 1px solid rgba(31,58,43,0.12);
+  padding: 32px;
+  position: sticky;
+  top: 100px;
+}
+.td-book-tag {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #b5532e;
+  margin-bottom: 8px;
+}
+.td-book-date {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1a160e;
+  margin-bottom: 28px;
+}
+.td-book-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(31,58,43,0.1);
+}
+.td-meta-k {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #6b6256;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  margin-bottom: 3px;
+}
+.td-meta-v {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a160e;
+}
+.td-price-block {
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+}
+.td-price {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #b5532e;
+  line-height: 1;
+  margin-top: 6px;
+}
+.td-book-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 16px 0;
+  margin-bottom: 10px;
+}
+.td-book-hint {
+  font-size: 12px;
+  color: #6b6256;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+/* Related */
+.td-related {
+  background: #1a160e;
+  color: #faf5e7;
+  padding: 80px 48px;
+}
+.td-related-eye {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #b5532e;
+}
+.td-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.td-rel-card {
+  background: rgba(250,245,231,0.04);
+  border: 1px solid rgba(250,245,231,0.12);
+  overflow: hidden;
+  color: #faf5e7;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, border-color .2s;
+}
+.td-rel-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(181,83,46,0.6);
+}
+.td-rel-photo {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.td-rel-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #b5532e;
+  color: #faf5e7;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  padding: 5px 9px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+.td-rel-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1;
+}
+.td-rel-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #faf5e7;
+  margin: 0;
+  line-height: 1.1;
+}
+.td-rel-loc {
+  font-size: 13px;
+  color: rgba(250,245,231,0.7);
+  margin-top: 4px;
+}
+.td-rel-foot {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(250,245,231,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+.td-rel-foot strong { color: #b5532e; }
+.td-rel-foot span:last-child { color: rgba(250,245,231,0.7); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .td-body { grid-template-columns: 1fr; gap: 40px; padding: 56px 32px; }
+  .td-book { position: static; }
+  .td-hero-h1 { font-size: 84px; }
+  .td-related-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .td-hero { min-height: 60vh; }
+  .td-hero-inner { bottom: 32px; left: 20px; right: 20px; }
+  .td-hero-h1 { font-size: 48px; }
+  .td-body { padding: 40px 20px; }
+  .td-h2 { font-size: 26px; margin-top: 40px; }
+  .td-incl-grid { grid-template-columns: 1fr; gap: 20px; }
+  .td-bring-list { column-count: 1; }
+  .td-book { padding: 24px; }
+  .td-related { padding: 56px 20px; }
+  .td-related-grid { grid-template-columns: 1fr; }
+}

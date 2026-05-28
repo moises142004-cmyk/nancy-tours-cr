@@ -1,0 +1,7 @@
+# Don't ship design exploration / brief / source material to Vercel
+design/
+
+# Repo docs aren't needed at runtime
+CLAUDE.md
+README.md
+.gitignore

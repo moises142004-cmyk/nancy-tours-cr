@@ -1,0 +1,264 @@
+/* Nancy Tours Costa Rica — Tours catalog page */
+
+.tp-hero {
+  position: relative;
+  min-height: 80vh;
+  overflow: hidden;
+}
+.tp-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-position: center 35%;
+}
+.tp-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,13,10,0.5) 0%, rgba(13,13,10,0.85) 100%);
+}
+.tp-hero-inner {
+  position: absolute;
+  bottom: 64px;
+  left: 48px;
+  color: #faf5e7;
+  max-width: 760px;
+}
+.tp-hero-eye {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 1px solid rgba(250,245,231,0.3);
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+.tp-hero-h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 88px;
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: #faf5e7;
+}
+.tp-hero-h1 span { color: #b5532e; }
+.tp-hero-lead {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 540px;
+  margin-top: 18px;
+  color: rgba(250,245,231,0.85);
+}
+
+/* Filter bar */
+.tp-filters {
+  background: #faf5e7;
+  padding: 32px 48px;
+  border-bottom: 1px solid rgba(31,58,43,0.1);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 28px;
+  align-items: flex-end;
+}
+.tp-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tp-filter-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #6b6256;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  text-transform: uppercase;
+}
+.tp-filter-options {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tp-chip {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  color: #1a160e;
+  border: 1px solid rgba(31,58,43,0.15);
+  font-family: 'Inter', sans-serif;
+  border-radius: 0;
+}
+.tp-chip.is-active {
+  background: #1f3a2b;
+  color: #faf5e7;
+  border-color: #1f3a2b;
+}
+.tp-result-count {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px;
+  color: #1a160e;
+  text-align: right;
+}
+.tp-result-count strong { font-weight: 800; }
+
+/* Featured next departure */
+.tp-featured {
+  padding: 64px 48px;
+  background: #faf5e7;
+}
+.tp-featured-eye {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #b5532e;
+  margin-bottom: 18px;
+}
+.tp-featured-card {
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  background: #fff;
+  border: 1px solid rgba(31,58,43,0.1);
+  overflow: hidden;
+}
+.tp-featured-photo {
+  min-height: 460px;
+}
+.tp-featured-body {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+}
+.tp-featured-tag {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  font-weight: 800;
+  color: #b5532e;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+.tp-featured-h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 12px 0 16px;
+}
+.tp-featured-p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #3a3328;
+  max-width: 540px;
+}
+.tp-featured-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(31,58,43,0.1);
+  border-bottom: 1px solid rgba(31,58,43,0.1);
+  margin-top: 24px;
+}
+.tp-featured-foot {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.tp-featured-price {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #b5532e;
+}
+.tp-featured-cta { margin-left: auto; }
+
+/* Grid section */
+.tp-grid-section {
+  padding: 32px 48px 96px;
+  background: #faf5e7;
+}
+.tp-category-h {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1a160e;
+  margin: 48px 0 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(31,58,43,0.15);
+  scroll-margin-top: 100px;
+}
+.tp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Custom CTA */
+.tp-cta {
+  background: #1f3a2b;
+  color: #faf5e7;
+  padding: 96px 48px;
+}
+.tp-cta-inner { max-width: 720px; }
+.tp-cta-eye {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #b5532e;
+  margin-bottom: 18px;
+}
+.tp-cta-h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 12px 0 18px;
+  color: #faf5e7;
+}
+.tp-cta-p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(250,245,231,0.85);
+  max-width: 620px;
+}
+.tp-cta-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .tp-filters { grid-template-columns: 1fr 1fr; }
+  .tp-result-count { grid-column: 1 / -1; text-align: left; }
+  .tp-grid { grid-template-columns: 1fr 1fr; }
+  .tp-featured-card { grid-template-columns: 1fr; }
+  .tp-featured-photo { min-height: 280px; }
+  .tp-hero-h1 { font-size: 64px; }
+}
+@media (max-width: 720px) {
+  .tp-hero { min-height: 60vh; }
+  .tp-hero-inner { bottom: 32px; left: 20px; right: 20px; }
+  .tp-hero-h1 { font-size: 44px; }
+  .tp-filters { padding: 24px 20px; grid-template-columns: 1fr; gap: 18px; }
+  .tp-featured { padding: 48px 20px; }
+  .tp-featured-body { padding: 28px; }
+  .tp-featured-h2 { font-size: 36px; }
+  .tp-featured-foot { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .tp-featured-cta { margin-left: 0; width: 100%; justify-content: center; }
+  .tp-featured-meta { grid-template-columns: 1fr; }
+  .tp-grid-section { padding: 20px 20px 56px; }
+  .tp-grid { grid-template-columns: 1fr; }
+  .tp-category-h { font-size: 24px; margin: 36px 0 18px; }
+  .tp-cta { padding: 56px 20px; }
+  .tp-cta-h2 { font-size: 36px; }
+  .tp-cta-actions { flex-direction: column; }
+  .tp-cta-actions .nt-btn { width: 100%; justify-content: center; }
+}

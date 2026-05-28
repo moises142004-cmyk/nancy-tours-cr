@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tours · Nancy Tours Costa Rica</title>
+<meta name="description" content="Catálogo completo de tours guiados en Costa Rica. Chirripó, Tortuguero, Bajos del Toro, Volcán Poás, Cavernas de Venado, Ballenas Uvita y más." />
+<meta property="og:title" content="Tours · Nancy Tours Costa Rica" />
+<meta property="og:description" content="Catálogo completo de tours guiados por Nancy: aventura, día completo, tercera edad, a medida." />
+<meta property="og:image" content="img/logo-nancy-800.png" />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/png" href="img/logo-nancy-mark-transparent.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="chrome.css" />
+<link rel="stylesheet" href="tours.css" />
+</head>
+<body class="nt-frame nt-dir-b">
+
+<a href="#contenido" class="nt-skip">Saltar al contenido</a>
+
+<header class="nt-nav">
+  <a href="home.html" class="nt-nav-brand" aria-label="Inicio">
+    <img src="img/logo-nancy-mark-light.png" alt="" class="nt-nav-mark" />
+    <span class="nt-nav-wordmark"><span>NANCY</span><span class="nt-nav-sub">tours&nbsp;cr</span></span>
+  </a>
+  <nav class="nt-nav-links" aria-label="Principal">
+    <a href="home.html" class="nt-link">Inicio</a>
+    <a href="tours.html" class="nt-link is-active">Tours</a>
+    <a href="sobre-nancy.html" class="nt-link">Sobre Nancy</a>
+    <a href="contacto.html" class="nt-link">Contacto</a>
+    <span class="nt-lang-pill" role="group" aria-label="Idioma">
+      <button type="button" data-lang="es" class="nt-lang-btn is-active" aria-pressed="true">ES</button>
+      <span class="nt-lang-sep">/</span>
+      <button type="button" data-lang="en" class="nt-lang-btn" aria-pressed="false">EN</button>
+    </span>
+  </nav>
+  <button type="button" class="nt-mobile-only nt-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nt-mobile-menu">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a href="contacto.html" class="nt-desktop-only nt-cta-pill"><span class="nt-cta-dot"></span>Reservar</a>
+</header>
+
+<div class="nt-mobile-menu" id="nt-mobile-menu" hidden>
+  <div class="nt-mobile-menu-top">
+    <a href="home.html" class="nt-nav-brand"><img src="img/logo-nancy-mark-light.png" alt="" class="nt-nav-mark"/><span class="nt-nav-wordmark"><span>NANCY</span> <span class="nt-nav-sub">tours cr</span></span></a>
+    <button type="button" class="nt-mobile-close" aria-label="Cerrar menú"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </div>
+  <nav class="nt-mobile-links" aria-label="Móvil">
+    <a href="home.html">Inicio</a>
+    <a href="tours.html" class="is-active">Tours</a>
+    <a href="sobre-nancy.html">Sobre Nancy</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <div class="nt-mobile-foot">
+    <a href="https://wa.me/50689494655" class="nt-mobile-wa">WhatsApp · +506 8949-4655</a>
+    <a href="contacto.html" class="nt-mobile-reserve">Reservar</a>
+    <div class="nt-mobile-lang">
+      <button type="button" data-lang="es" class="is-active">ES</button>
+      <span>/</span>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+  </div>
+</div>
+
+<main id="contenido">
+
+  <section class="tp-hero">
+    <div class="tp-hero-bg nt-photo" style="background-image: url(img/chirripo-lakes.jpg)" aria-hidden="true"></div>
+    <div class="tp-hero-scrim" aria-hidden="true"></div>
+    <div class="tp-hero-inner">
+      <div class="tp-hero-eye"><span class="nt-dot-pulse"></span>CATÁLOGO COMPLETO</div>
+      <h1 class="tp-hero-h1">Trece tours.<br /><span>Un solo país.</span></h1>
+      <p class="tp-hero-lead">
+        Desde subir el techo de Costa Rica hasta navegar los canales del Caribe.
+        Filtrá por lo que tenés ganas de hacer — yo me encargo del resto.
+      </p>
+    </div>
+  </section>
+
+  <section class="tp-filters" aria-label="Filtros">
+    <div class="tp-filter-group">
+      <span class="tp-filter-label">Categoría</span>
+      <div class="tp-filter-options">
+        <button type="button" class="tp-chip is-active">Todos</button>
+        <button type="button" class="tp-chip">Aventura</button>
+        <button type="button" class="tp-chip">Día completo</button>
+        <button type="button" class="tp-chip">Cultural</button>
+        <button type="button" class="tp-chip">Tercera edad</button>
+        <button type="button" class="tp-chip">Temporada</button>
+        <button type="button" class="tp-chip">A medida</button>
+      </div>
+    </div>
+    <div class="tp-filter-group">
+      <span class="tp-filter-label">Nivel</span>
+      <div class="tp-filter-options">
+        <button type="button" class="tp-chip is-active">Todos</button>
+        <button type="button" class="tp-chip">Baja</button>
+        <button type="button" class="tp-chip">Media</button>
+        <button type="button" class="tp-chip">Alta</button>
+      </div>
+    </div>
+    <div class="tp-filter-group">
+      <span class="tp-filter-label">Duración</span>
+      <div class="tp-filter-options">
+        <button type="button" class="tp-chip is-active">Todas</button>
+        <button type="button" class="tp-chip">1 día</button>
+        <button type="button" class="tp-chip">2 días</button>
+        <button type="button" class="tp-chip">3+ días</button>
+      </div>
+    </div>
+    <div class="tp-result-count"><strong>13</strong> tours disponibles</div>
+  </section>
+
+  <section class="tp-featured">
+    <div class="tp-featured-eye">★ &nbsp;PRÓXIMA SALIDA · 14 JUN</div>
+    <div class="tp-featured-card">
+      <div class="tp-featured-photo nt-photo" style="background-image: url(img/waterfall.jpg)" aria-hidden="true"></div>
+      <div class="tp-featured-body">
+        <span class="tp-featured-tag">DÍA COMPLETO · 4 CUPOS LIBRES</span>
+        <h2 class="tp-featured-h2">Bajos del Toro</h2>
+        <p class="tp-featured-p">
+          Una de las cataratas más fotogénicas del país, escondida en un cañón verde.
+          Caminata de 1.5 km descendente con cuerdas en los tramos finales. Almuerzo
+          típico incluido en restaurante familiar de la zona.
+        </p>
+        <div class="tp-featured-meta">
+          <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">Sábado 14 jun · 6 AM</span></div>
+          <div><span class="nt-meta-k">SALIDA</span><span class="nt-meta-v">Heredia centro</span></div>
+          <div><span class="nt-meta-k">INCLUYE</span><span class="nt-meta-v">Transporte + guía + almuerzo</span></div>
+          <div><span class="nt-meta-k">QUÉ LLEVAR</span><span class="nt-meta-v">Bota cerrada, agua, repelente</span></div>
+        </div>
+        <div class="tp-featured-foot">
+          <span class="nt-meta-k">POR PERSONA</span>
+          <strong class="tp-featured-price">$85</strong>
+          <a href="tour-detail.html?id=bajos-toro" class="nt-btn nt-btn-primary tp-featured-cta">Apartar cupo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tp-grid-section">
+
+    <h2 class="tp-category-h" id="aventura">Aventura</h2>
+    <div class="tp-grid">
+
+      <a href="tour-detail.html?id=chirripo" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/chirripo-summit.jpg)">
+          <span class="nt-tour-tag">AVENTURA</span><span class="nt-tour-num">01</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Cerro Chirripó</h3>
+            <div class="nt-tour-loc">Pérez Zeledón · 3.820 m</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">13 — 15 JUN</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">3 días · 2 noches</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Alta</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">6 / 10</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$340</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="tour-detail.html?id=volcan-barva" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/foggy-bridge.jpg)">
+          <span class="nt-tour-tag">AVENTURA</span><span class="nt-tour-num">02</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Volcán Barva</h3>
+            <div class="nt-tour-loc">Heredia · bosque nuboso</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">05 JUL · dom</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">1 día</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Media</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">8 / 12</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$75</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="tour-detail.html?id=cerro-chompipe" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/hiking-trail.jpg)">
+          <span class="nt-tour-tag">AVENTURA</span><span class="nt-tour-num">03</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Cerro Chompipe</h3>
+            <div class="nt-tour-loc">San Rafael · ruta intermedia</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">22 JUN · dom</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">1 día</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Media</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">10 / 12</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$60</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <h2 class="tp-category-h" id="dia">Día completo</h2>
+    <div class="tp-grid">
+
+      <a href="tour-detail.html?id=bajos-toro" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/waterfall.jpg)">
+          <span class="nt-tour-tag">DÍA</span><span class="nt-tour-num">04</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Bajos del Toro</h3>
+            <div class="nt-tour-loc">Alajuela · catarata oculta</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">14 JUN · sáb</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">1 día</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Media</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">4 / 12</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$85</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="tour-detail.html?id=cavernas-venado" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/cave.jpg)">
+          <span class="nt-tour-tag">DÍA</span><span class="nt-tour-num">05</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Cavernas de Venado</h3>
+            <div class="nt-tour-loc">San Carlos · estalactitas</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">28 JUN · sáb</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">1 día</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Media</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">8 / 12</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$95</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="tour-detail.html?id=volcan-poas" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/chirripo-sign.jpg)">
+          <span class="nt-tour-tag">DÍA</span><span class="nt-tour-num">06</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Volcán Poás</h3>
+            <div class="nt-tour-loc">Alajuela · cráter activo</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">20 JUL · dom</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">1 día</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Baja</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">14 / 16</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$70</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <h2 class="tp-category-h" id="cultural">Multi-día y temporada</h2>
+    <div class="tp-grid">
+
+      <a href="tour-detail.html?id=tortuguero" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/boat-tour.jpg)">
+          <span class="nt-tour-tag">2 DÍAS</span><span class="nt-tour-num">07</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Tortuguero</h3>
+            <div class="nt-tour-loc">Limón · canales caribeños</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">21 — 22 JUN</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">2 días · 1 noche</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Baja</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">2 / 14</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$220</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="tour-detail.html?id=ballenas-uvita" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/whale.jpg)">
+          <span class="nt-tour-tag">TEMPORADA</span><span class="nt-tour-num">08</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Ballenas en Uvita</h3>
+            <div class="nt-tour-loc">Pacífico Sur · jul-oct</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">12 JUL · sáb</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">1 día</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Baja</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">10 / 16</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$110</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="tour-detail.html?id=corcovado" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/tortuguero-group.jpg)">
+          <span class="nt-tour-tag">CULTURAL</span><span class="nt-tour-num">09</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Corcovado</h3>
+            <div class="nt-tour-loc">Osa · selva primaria</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">09 — 11 AGO</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">3 días · 2 noches</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Alta</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">4 / 10</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$480</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <h2 class="tp-category-h" id="tercera-edad">Para tercera edad y familias</h2>
+    <div class="tp-grid">
+
+      <a href="tour-detail.html?id=puentes-colgantes" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/foggy-bridge.jpg)">
+          <span class="nt-tour-tag">TERCERA EDAD</span><span class="nt-tour-num">10</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Puentes colgantes</h3>
+            <div class="nt-tour-loc">Monteverde · ritmo suave</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">06 JUL · dom</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">1 día</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Baja</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">12 / 16</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$95</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="tour-detail.html?id=sarchi-grecia" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/chirripo-sign.jpg)">
+          <span class="nt-tour-tag">CULTURAL</span><span class="nt-tour-num">11</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Sarchí + Grecia</h3>
+            <div class="nt-tour-loc">Pueblos tradicionales</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">13 JUL · dom</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">1 día</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Baja</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">10 / 16</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$65</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="tour-detail.html?id=mercados-sj" class="nt-tour-card">
+        <div class="nt-tour-photo" style="background-image: url(img/boat-tour.jpg)">
+          <span class="nt-tour-tag">CULTURAL</span><span class="nt-tour-num">12</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Mercados de San José</h3>
+            <div class="nt-tour-loc">Capital · gastronomía local</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">27 JUL · sáb</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">1 día</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">Baja</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">14 / 16</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">$55</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <h2 class="tp-category-h" id="a-medida">A medida</h2>
+    <div class="tp-grid">
+      <a href="tour-detail.html?id=a-medida" class="nt-tour-card nt-tour-card--custom">
+        <div class="nt-tour-photo" style="background-image: url(img/chirripo-lakes.jpg)">
+          <span class="nt-tour-tag">A MEDIDA</span><span class="nt-tour-num">13</span>
+        </div>
+        <div class="nt-tour-body">
+          <div>
+            <h3 class="nt-tour-title">Tu propio tour</h3>
+            <div class="nt-tour-loc">A donde vos quieras ir</div>
+          </div>
+          <div class="nt-tour-meta">
+            <div><span class="nt-meta-k">FECHA</span><span class="nt-meta-v">Coordiná fecha</span></div>
+            <div><span class="nt-meta-k">DURACIÓN</span><span class="nt-meta-v">A elección</span></div>
+            <div><span class="nt-meta-k">NIVEL</span><span class="nt-meta-v">—</span></div>
+            <div><span class="nt-meta-k">CUPO</span><span class="nt-meta-v">—</span></div>
+          </div>
+          <div class="nt-tour-foot">
+            <div><span class="nt-meta-k">DESDE</span><strong class="nt-tour-price">Consultá</strong></div>
+            <span class="nt-tour-cta">Reservar →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="tp-cta">
+    <div class="tp-cta-inner">
+      <div class="tp-cta-eye">★ &nbsp;TOURS A MEDIDA</div>
+      <h2 class="tp-cta-h2">¿No encontraste lo que buscabas?</h2>
+      <p class="tp-cta-p">
+        Armo tours privados para grupos de 2 a 20 personas. Empresariales,
+        cumpleaños, escuelas, despedidas. Decime qué tenés ganas de hacer
+        y dónde, y te armo un plan en menos de 48 horas.
+      </p>
+      <div class="tp-cta-actions">
+        <a href="https://wa.me/50689494655" target="_blank" rel="noopener" class="nt-btn nt-btn-wa nt-btn-lg">
+          <span class="nt-wa-icon">w</span>
+          Hablemos por WhatsApp
+        </a>
+        <a href="contacto.html" class="nt-btn nt-btn-ghost-dark nt-btn-lg">Formulario de cotización →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="nt-footer">
+  <div class="nt-foot-grid">
+    <div>
+      <a href="home.html" class="nt-nav-brand" aria-label="Inicio">
+        <img src="img/logo-nancy-mark-light.png" alt="" class="nt-nav-mark" />
+        <span class="nt-nav-wordmark"><strong>NANCY</strong> <span class="nt-nav-sub">tours cr</span></span>
+      </a>
+      <p class="nt-foot-blurb">
+        <em>EXPERIENCIAS QUE CONECTAN</em>
+        Tours guiados por toda Costa Rica.<br/>Heredia, Mercedes Norte. ICT en trámite.
+      </p>
+      <div class="nt-foot-social">
+        <a href="https://wa.me/50689494655">WHATSAPP</a>
+        <a href="https://instagram.com/nancytourscr">INSTAGRAM</a>
+        <a href="https://facebook.com/CostaRicaFamily">FACEBOOK</a>
+      </div>
+    </div>
+    <div class="nt-foot-col">
+      <h4>Navegación</h4>
+      <a href="home.html">Inicio</a>
+      <a href="tours.html">Todos los tours</a>
+      <a href="sobre-nancy.html">Sobre Nancy</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="nt-foot-col">
+      <h4>Tours destacados</h4>
+      <a href="tour-detail.html?id=chirripo">Cerro Chirripó</a>
+      <a href="tour-detail.html?id=bajos-toro">Bajos del Toro</a>
+      <a href="tour-detail.html?id=tortuguero">Tortuguero</a>
+      <a href="tour-detail.html?id=ballenas-uvita">Ballenas Uvita</a>
+      <a href="tours.html">Ver todos →</a>
+    </div>
+    <div class="nt-foot-col">
+      <h4>Por categoría</h4>
+      <a href="tours.html#aventura">Aventura</a>
+      <a href="tours.html#dia">Día completo</a>
+      <a href="tours.html#tercera-edad">Tercera edad</a>
+      <a href="tours.html#cultural">Cultural</a>
+      <a href="tours.html#a-medida">A medida</a>
+    </div>
+    <div class="nt-foot-col">
+      <h4>Contacto</h4>
+      <a href="https://wa.me/50689494655">+506 8949-4655</a>
+      <a href="https://wa.me/50689494655">WhatsApp</a>
+      <a href="mailto:hola@nancytourscr.com">hola@nancytourscr.com</a>
+      <a href="https://maps.google.com/?q=Mercedes+Norte+Heredia+Costa+Rica" target="_blank" rel="noopener">Heredia, Mercedes Norte</a>
+    </div>
+  </div>
+  <div class="nt-foot-bottom">
+    <span>© 2026 NANCY TOURS COSTA RICA · Todos los derechos reservados</span>
+    <span>nancytourscr.com</span>
+    <span>Diseño <a href="https://dreamos.dev">Dream[OS]</a></span>
+  </div>
+</footer>
+
+<a href="https://wa.me/50689494655" class="nt-wa-float" target="_blank" rel="noopener" aria-label="WhatsApp Nancy">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.1-.2-.6-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.8.1.2 1.8 2.7 4.3 3.8 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.9 3.3 1.4 5.2 1.4 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+</a>
+
+<script src="chrome.js" defer></script>
+</body>
+</html>

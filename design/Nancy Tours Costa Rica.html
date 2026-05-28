@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nancy Tours Costa Rica — exploración de marca</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Serif+Display:ital@0;1&family=Bricolage+Grotesque:opsz,wght@10..48,400..800&family=Inter:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+
+<style>
+  html, body {
+    margin: 0; padding: 0;
+    height: 100%; width: 100%;
+    background: #f0eee9;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+  #root { width: 100%; height: 100%; }
+
+  /* Make sure h4 in footer columns has consistent style */
+  .nt-frame h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #faf5e7;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.04em;
+  }
+  .nt-frame footer a { color: inherit; text-decoration: none; cursor: pointer; }
+  .nt-frame nav a { cursor: pointer; }
+  .nt-frame h2, .nt-frame h3 { margin: 0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="logo-wood.jsx"></script>
+<script type="text/babel" src="palette-card.jsx"></script>
+<script type="text/babel" src="shared-chrome.jsx"></script>
+<script type="text/babel" src="direction-b.jsx"></script>
+<script type="text/babel" src="tours-page.jsx"></script>
+<script type="text/babel" src="nancy-page.jsx"></script>
+<script type="text/babel" src="contact-page.jsx"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "density": 1,
+  "palette": "earth",
+  "showWhatsAppFloat": true
+}/*EDITMODE-END*/;
+
+const PALETTES = {
+  earth: { terracotta: '#B5532E', forest: '#1F3A2B', cream: '#F4ECD8', ochre: '#C99A3F', label: 'Tierra (default)' },
+  jungle: { terracotta: '#D17A3B', forest: '#143020', cream: '#EDE5CC', ochre: '#9CA440', label: 'Selva profunda' },
+  sunset: { terracotta: '#C4451F', forest: '#3A2820', cream: '#F7E6C7', ochre: '#E89A2E', label: 'Atardecer Pacífico' },
+  pacific: { terracotta: '#A14530', forest: '#1B3A4B', cream: '#F0EAD8', ochre: '#D9A340', label: 'Pacífico azul' },
+};
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  // Apply palette to CSS variables on :root
+  useEffect(() => {
+    const p = PALETTES[t.palette] || PALETTES.earth;
+    document.documentElement.style.setProperty('--nt-terracotta', p.terracotta);
+    document.documentElement.style.setProperty('--nt-forest', p.forest);
+    document.documentElement.style.setProperty('--nt-cream', p.cream);
+    document.documentElement.style.setProperty('--nt-ochre', p.ochre);
+  }, [t.palette]);
+
+  return (
+    <React.Fragment>
+      <SharedWoodDefs />
+      <DesignCanvas>
+        <DCSection id="intro" title="Nancy Tours Costa Rica" subtitle="Dirección B · Cinematic Wild — refinada con tarjetas de tour (mix B + C). El logo se rehace con textura woodcut.">
+          <DCArtboard id="palette" label="Sistema base · paleta + tipografía" width={1200} height={620}>
+            <PaletteCard />
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="logos" title="Logo · final" subtitle="Tu diseño integrado en tres contextos: papel crema, superficie oscura, y la marca aislada para favicons / redes / avatars.">
+          <DCArtboard id="logo-cream" label="Sobre crema" width={520} height={420}><LogoOnCream /></DCArtboard>
+          <DCArtboard id="logo-dark" label="Sobre oscuro" width={520} height={420}><LogoOnDark /></DCArtboard>
+          <DCArtboard id="logo-mark" label="Marca aislada" width={380} height={420}><LogoMark /></DCArtboard>
+        </DCSection>
+
+        <DCSection id="home" title="Home page · Direction B refinada" subtitle="Cinematic Wild + tarjetas de tour estilo postcard. Abrí en fullscreen ↗ para ver de cerca.">
+          <DCArtboard id="dir-b" label="Home · Cinematic + Tarjetas" width={1280} height={4200}>
+            <HomeDirectionB density={t.density} />
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="pages" title="Páginas internas" subtitle="Tours · Sobre Nancy · Contacto — misma dirección visual que el home, navegación entre sí vía el nav superior.">
+          <DCArtboard id="page-tours" label="Tours · listado + filtros" width={1280} height={4400}>
+            <ToursPage />
+          </DCArtboard>
+          <DCArtboard id="page-nancy" label="Sobre Nancy · historia + credenciales" width={1280} height={4900}>
+            <NancyPage />
+          </DCArtboard>
+          <DCArtboard id="page-contact" label="Contacto · reservas + pagos" width={1280} height={3500}>
+            <ContactPage />
+          </DCArtboard>
+        </DCSection>
+      </DesignCanvas>
+
+      <TweaksPanel title="Tweaks · Nancy Tours">
+        <TweakSection label="Paleta">
+          <TweakRadio
+            label="Variante"
+            value={t.palette}
+            onChange={v => setTweak('palette', v)}
+            options={[
+              { value: 'earth',   label: 'Tierra' },
+              { value: 'jungle',  label: 'Selva' },
+              { value: 'sunset',  label: 'Atardecer' },
+              { value: 'pacific', label: 'Pacífico' },
+            ]}
+          />
+          {/* Visual swatch row showing the active palette */}
+          <div style={{ display: 'flex', gap: 4, marginTop: -2 }}>
+            {[ 'terracotta','forest','ochre','cream' ].map(k => (
+              <div key={k} style={{
+                flex: 1, height: 22, borderRadius: 3,
+                background: (PALETTES[t.palette] || PALETTES.earth)[k],
+                border: '1px solid rgba(0,0,0,0.08)',
+              }} title={k} />
+            ))}
+          </div>
+        </TweakSection>
+
+        <TweakSection label="Densidad · padding global">
+          <TweakSlider
+            label="Espaciado"
+            value={t.density}
+            min={0.7} max={1.4} step={0.05}
+            unit="×"
+            onChange={v => setTweak('density', v)}
+          />
+        </TweakSection>
+
+        <TweakSection label="Componentes">
+          <TweakToggle
+            label="Botón flotante WhatsApp"
+            value={t.showWhatsAppFloat}
+            onChange={v => setTweak('showWhatsAppFloat', v)}
+          />
+        </TweakSection>
+      </TweaksPanel>
+
+      {/* Hide WA float via Tweaks toggle */}
+      <style>{t.showWhatsAppFloat ? '' : '.nt-wa-float { display: none !important; }'}</style>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

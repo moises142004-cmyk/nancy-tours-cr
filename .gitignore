@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Vercel
+.vercel/
+.env*.local
+
+# Logs
+npm-debug.log*
+*.log
+
+# Temp
+.cache/
+.tmp/
+.thumbnail
