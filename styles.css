@@ -1,7 +1,7 @@
-/* Nancy Tours Costa Rica — shared design system tokens
+/* Nancy Tours Costa Rica — design tokens
    ====================================================
-   All three home directions read from these tokens so the Tweaks
-   panel can swap them globally without touching component code. */
+   Token layer only. All visual styles live in chrome.css (shared) or
+   <page>.css (page-specific). See CLAUDE.md for the architecture. */
 
 :root {
   /* Earth palette — terracotta + forest green + warm cream */
@@ -15,102 +15,17 @@
   --nt-ochre: #c99a3f;
   --nt-stone: #6b6256;
 
-  /* Type system — different per direction; tokens default to direction A */
-  --nt-display: "Instrument Serif", "Cormorant Garamond", Georgia, serif;
+  /* Type system */
+  --nt-display: "Bricolage Grotesque", "Space Grotesk", system-ui, sans-serif;
   --nt-body: "Inter", "Helvetica Neue", system-ui, sans-serif;
   --nt-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
 
   /* Spatial */
   --nt-radius: 4px;
-  --nt-density: 1; /* multiplier — tweakable */
 }
 
 /* Direction-specific overrides applied at .nt-dir-X scope */
-.nt-dir-a {
-  --nt-display: "Instrument Serif", "Cormorant Garamond", Georgia, serif;
-  --nt-body: "Inter", "Helvetica Neue", system-ui, sans-serif;
-}
 .nt-dir-b {
   --nt-display: "Bricolage Grotesque", "Space Grotesk", system-ui, sans-serif;
   --nt-body: "Inter", system-ui, sans-serif;
-}
-.nt-dir-c {
-  --nt-display: "DM Serif Display", "Playfair Display", Georgia, serif;
-  --nt-body: "Work Sans", system-ui, sans-serif;
-}
-
-/* Mockup frame — wraps a full-width 1280px design and clips content */
-.nt-frame {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: var(--nt-cream);
-  color: var(--nt-ink);
-  font-family: var(--nt-body);
-  font-size: 15px;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-.nt-frame * { box-sizing: border-box; }
-
-/* Generic photo placeholder when we want a numbered slot */
-.nt-photo {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Small caps utility for editorial labels */
-.nt-eyebrow {
-  font-family: var(--nt-body);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-/* Buttons — three flavors used across directions */
-.nt-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 22px;
-  font-family: var(--nt-body);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  border-radius: var(--nt-radius);
-  transition: transform .15s, background .15s;
-}
-.nt-btn-primary { background: var(--nt-terracotta); color: #fff; }
-.nt-btn-primary:hover { background: var(--nt-terracotta-deep); }
-.nt-btn-ghost {
-  background: transparent;
-  color: var(--nt-ink);
-  border: 1.5px solid var(--nt-ink);
-}
-.nt-btn-wa {
-  background: #25D366;
-  color: #fff;
-}
-
-/* Floating WhatsApp pill (lives bottom-right of each artboard) */
-.nt-wa-float {
-  position: absolute;
-  right: 24px;
-  bottom: 24px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25D366;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,.18);
-  z-index: 50;
 }
