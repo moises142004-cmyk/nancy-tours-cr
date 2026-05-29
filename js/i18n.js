@@ -88,6 +88,11 @@
       'tours.meta.level': 'NIVEL',
       'tours.meta.spots': 'CUPO',
 
+      // ── Soonish (near-threshold) home section
+      'soonish.eyebrow': '★ TOURS QUE CASI SE LANZAN',
+      'soonish.h2': 'Faltan pocos para que estos salgan.',
+      'soonish.viewAll': 'Ver todos →',
+
       // ── Why Nancy
       'diff.eyebrow': '02 / POR QUÉ NANCY',
       'diff.h2': 'No es solo conocer Costa Rica. Es conocerla bien.',
@@ -228,6 +233,11 @@
       'tours.meta.duration': 'DURATION',
       'tours.meta.level': 'LEVEL',
       'tours.meta.spots': 'SPOTS',
+
+      // ── Soonish (near-threshold) home section
+      'soonish.eyebrow': '★ TOURS ABOUT TO LAUNCH',
+      'soonish.h2': 'A few more and these are happening.',
+      'soonish.viewAll': 'See all →',
 
       // ── Why Nancy
       'diff.eyebrow': '02 / WHY NANCY',

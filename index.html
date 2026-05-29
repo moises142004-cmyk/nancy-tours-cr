@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" href="css/tokens.css?v=5" />
 <link rel="stylesheet" href="css/chrome.css?v=9" />
-<link rel="stylesheet" href="css/home.css?v=4" />
+<link rel="stylesheet" href="css/home.css?v=5" />
 
 <link rel="canonical" href="https://nancy-tours-cr.vercel.app/" />
 <link rel="alternate" hreflang="es" href="https://nancy-tours-cr.vercel.app/" />
@@ -219,6 +219,20 @@
       <span aria-hidden="true">CORCOVADO</span><span aria-hidden="true">◆</span>
       <span aria-hidden="true">MONTEVERDE</span><span aria-hidden="true">◆</span>
       <span aria-hidden="true">BARVA</span><span aria-hidden="true">◆</span>
+    </div>
+  </section>
+
+  <!-- ── Tours que casi se lanzan ─────────────────── -->
+  <section class="nt-soonish" id="nt-soonish" hidden aria-labelledby="soonish-h">
+    <div class="nt-soonish-inner">
+      <div class="nt-soonish-head">
+        <div>
+          <div class="nt-eyebrow-dark" data-i18n="soonish.eyebrow">★ TOURS QUE CASI SE LANZAN</div>
+          <h2 id="soonish-h" class="nt-h2" data-i18n="soonish.h2">Faltan pocos para que estos salgan.</h2>
+        </div>
+        <a href="tours.html" class="nt-view-all" data-i18n="soonish.viewAll">Ver todos →</a>
+      </div>
+      <div id="nt-soonish-grid" class="nt-tour-grid"></div>
     </div>
   </section>
 
@@ -716,6 +730,10 @@
 
 <script src="js/i18n.js" defer></script>
 <script src="js/chrome.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script>
+<script src="js/supabase-client.js" defer></script>
+<script src="js/tours-api.js" defer></script>
+<script src="js/home-near-threshold.js" defer></script>
 <script src="js/home.js" defer></script>
 </body>
 </html>
