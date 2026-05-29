@@ -336,8 +336,8 @@ a { color: inherit; }
   padding: 15px 24px;
 }
 .nt-btn-ghost-dark:hover { background: rgba(250,245,231,0.1); border-color: rgba(250,245,231,0.7); }
-.nt-btn-wa { background: #128C7E; color: #fff; }  /* WhatsApp dark green for WCAG AA contrast */
-.nt-btn-wa:hover { background: #0e6e62; }
+.nt-btn-wa { background: #0d7565; color: #fff; font-weight: 700; }  /* WhatsApp dark green, bold for WCAG AA contrast */
+.nt-btn-wa:hover { background: #075e51; }
 .nt-btn-lg { padding: 16px 26px; }
 .nt-btn--mt { margin-top: 24px; }
 

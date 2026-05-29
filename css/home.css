@@ -731,8 +731,9 @@
   justify-content: space-between;
   align-items: flex-end;
 }
-.nt-book-foot span:first-child { font-size: 12px; opacity: 0.92; }
+.nt-book-foot span:first-child { font-size: 12px; color: #fff; font-weight: 500; }
 .nt-book-foot span:last-child { font-size: 20px; }
+.nt-book-opt:not(.nt-book-opt--prim) .nt-book-foot span:first-child { color: rgba(250,245,231,0.85); font-weight: 400; }
 
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 1100px) {

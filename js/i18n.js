@@ -51,7 +51,7 @@
       'chip.title': 'AUDIO · CHIRRIPÓ',
       'chip.play': 'TOCÁ PARA OÍR',
       'chip.playing': 'AVES · SELVA',
-      'chip.aria.play': 'Audio Chirripó — tocá para oír sonido de selva',
+      'chip.aria.play': 'Audio Chirripó · Tocá para oír sonido de selva',
       'chip.aria.pause': 'Pausar sonido de selva',
 
       // ── Intro de Nancy
@@ -192,7 +192,7 @@
       'chip.title': 'AUDIO · CHIRRIPÓ',
       'chip.play': 'TAP TO LISTEN',
       'chip.playing': 'BIRDS · JUNGLE',
-      'chip.aria.play': 'Audio Chirripó — tap to play jungle sounds',
+      'chip.aria.play': 'Audio Chirripó · Tap to play jungle sounds',
       'chip.aria.pause': 'Pause jungle sounds',
 
       // ── Intro de Nancy
