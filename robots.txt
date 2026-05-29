@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 Disallow: /design/
 
 Sitemap: https://nancy-tours-cr.vercel.app/sitemap.xml
