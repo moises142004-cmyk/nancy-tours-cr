@@ -262,3 +262,38 @@
   .tp-cta-actions { flex-direction: column; }
   .tp-cta-actions .nt-btn { width: 100%; justify-content: center; }
 }
+
+.tp-state-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.tp-state-filter {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #fff;
+  color: #1a160e;
+  border: 1px solid rgba(31,58,43,0.15);
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 4px;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.tp-state-filter.is-active {
+  background: #1f3a2b;
+  color: #faf5e7;
+  border-color: #1f3a2b;
+}
+.tp-state-filter:hover:not(.is-active) {
+  background: rgba(31,58,43,0.05);
+}
+.tp-loading, .tp-empty, .tp-error {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 24px;
+  color: #6b6256;
+  font-style: italic;
+}
+.tp-error { color: #b5532e; }
