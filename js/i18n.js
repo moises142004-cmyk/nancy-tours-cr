@@ -32,7 +32,7 @@
       'nav.book': 'Reservar',
       'nav.openMenu': 'Abrir menú',
       'nav.closeMenu': 'Cerrar menú',
-      'nav.brand.aria': 'Nancy Tours Costa Rica — Inicio',
+      'nav.brand.aria': 'Nancy Tours CR — Inicio',
       'nav.skipLink': 'Saltar al contenido',
 
       // ── Hero
@@ -51,7 +51,7 @@
       'chip.title': 'AUDIO · CHIRRIPÓ',
       'chip.play': 'TOCÁ PARA OÍR',
       'chip.playing': 'AVES · SELVA',
-      'chip.aria.play': 'Reproducir sonido de selva',
+      'chip.aria.play': 'Audio Chirripó — tocá para oír sonido de selva',
       'chip.aria.pause': 'Pausar sonido de selva',
 
       // ── Intro de Nancy
@@ -173,7 +173,7 @@
       'nav.book': 'Book',
       'nav.openMenu': 'Open menu',
       'nav.closeMenu': 'Close menu',
-      'nav.brand.aria': 'Nancy Tours Costa Rica — Home',
+      'nav.brand.aria': 'Nancy Tours CR — Home',
       'nav.skipLink': 'Skip to content',
 
       // ── Hero
@@ -192,7 +192,7 @@
       'chip.title': 'AUDIO · CHIRRIPÓ',
       'chip.play': 'TAP TO LISTEN',
       'chip.playing': 'BIRDS · JUNGLE',
-      'chip.aria.play': 'Play jungle sounds',
+      'chip.aria.play': 'Audio Chirripó — tap to play jungle sounds',
       'chip.aria.pause': 'Pause jungle sounds',
 
       // ── Intro de Nancy

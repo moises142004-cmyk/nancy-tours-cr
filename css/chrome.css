@@ -336,8 +336,8 @@ a { color: inherit; }
   padding: 15px 24px;
 }
 .nt-btn-ghost-dark:hover { background: rgba(250,245,231,0.1); border-color: rgba(250,245,231,0.7); }
-.nt-btn-wa { background: #25D366; color: #fff; }
-.nt-btn-wa:hover { background: #1ebe5a; }
+.nt-btn-wa { background: #128C7E; color: #fff; }  /* WhatsApp dark green for WCAG AA contrast */
+.nt-btn-wa:hover { background: #0e6e62; }
 .nt-btn-lg { padding: 16px 26px; }
 .nt-btn--mt { margin-top: 24px; }
 
@@ -361,6 +361,15 @@ a { color: inherit; }
   letter-spacing: 0.22em;
   font-weight: 700;
   color: #b5532e;
+}
+/* Eyebrow over dark backgrounds — use ochre for WCAG AA contrast */
+.nt-diff .nt-eyebrow-light,
+.nt-book .nt-eyebrow-light,
+.nt-footer .nt-eyebrow-light,
+.np-credentials .np-eye,
+.np-testi .np-eye,
+.cp-faq .cp-eye {
+  color: #f4a063;
 }
 .nt-h2 {
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -572,7 +581,7 @@ a { color: inherit; }
   gap: 8px;
   font-size: 13px;
 }
-.nt-foot-col h4 {
+.nt-foot-col h3 {
   font-size: 13px;
   font-weight: 700;
   color: #faf5e7;
@@ -580,10 +589,13 @@ a { color: inherit; }
   letter-spacing: 0.04em;
 }
 .nt-foot-col a {
-  color: rgba(250,245,231,0.65);
+  color: rgba(250,245,231,0.78);
   text-decoration: none;
   cursor: pointer;
   transition: color .15s;
+  padding: 6px 0;            /* a11y: 28px hit area */
+  min-height: 24px;
+  display: inline-block;
 }
 .nt-foot-col a:hover { color: #faf5e7; }
 .nt-foot-bottom {
@@ -593,7 +605,7 @@ a { color: inherit; }
   display: flex;
   justify-content: space-between;
   font-size: 11px;
-  color: rgba(250,245,231,0.4);
+  color: rgba(250,245,231,0.6);
   letter-spacing: 0.08em;
   flex-wrap: wrap;
   gap: 12px;
