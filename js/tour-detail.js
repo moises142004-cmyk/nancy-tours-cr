@@ -22,6 +22,63 @@
     return params.get('id') || 'chirripo';
   }
 
+  function injectJsonLd(tour, slug) {
+    const origin = window.location.origin;
+    const url = `${origin}/tour-detail?id=${encodeURIComponent(slug)}`;
+    const data = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'TouristTrip',
+          name: tour.title,
+          description: tour.lead,
+          image: origin + '/' + (tour.hero || 'img/logo-nancy-800.png'),
+          url,
+          provider: {
+            '@type': 'TravelAgency',
+            name: 'Nancy Tours Costa Rica',
+            url: origin + '/',
+            telephone: '+506-8878-7370',
+          },
+          touristType: tour.tag,
+          offers: tour.price && tour.price !== 'Consultá' ? {
+            '@type': 'Offer',
+            price: String(tour.price).replace(/[^0-9.]/g, '') || undefined,
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+            url,
+          } : undefined,
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Inicio', item: origin + '/' },
+            { '@type': 'ListItem', position: 2, name: 'Tours', item: origin + '/tours' },
+            { '@type': 'ListItem', position: 3, name: tour.title, item: url },
+          ],
+        },
+      ],
+    };
+    if (tour.faq && tour.faq.length) {
+      data['@graph'].push({
+        '@type': 'FAQPage',
+        mainEntity: tour.faq.map(([q, a]) => ({
+          '@type': 'Question',
+          name: q,
+          acceptedAnswer: { '@type': 'Answer', text: a },
+        })),
+      });
+    }
+    let s = document.getElementById('nt-td-jsonld');
+    if (!s) {
+      s = document.createElement('script');
+      s.id = 'nt-td-jsonld';
+      s.type = 'application/ld+json';
+      document.head.appendChild(s);
+    }
+    s.textContent = JSON.stringify(data);
+  }
+
   function render(tour) {
     // Set page title
     document.title = `${tour.title} · Nancy Tours Costa Rica`;
@@ -31,6 +88,18 @@
     if (ogTitle) ogTitle.setAttribute('content', `${tour.title} · Nancy Tours Costa Rica`);
     const ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute('content', tour.lead);
+
+    // JSON-LD structured data
+    injectJsonLd(tour, getTourId());
+
+    // Canonical
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = `${window.location.origin}/tour-detail?id=${encodeURIComponent(getTourId())}`;
 
     // Hero bg — set via style.backgroundImage (the browser handles escaping)
     const heroBg = document.querySelector('[data-td="hero-bg"]');

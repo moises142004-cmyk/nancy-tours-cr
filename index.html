@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Nancy Tours Costa Rica · Tours guiados por todo el país</title>
-<meta name="description" content="Tours guiados por Nancy. 15 años recorriendo Costa Rica — Chirripó, Tortuguero, Bajos del Toro, Volcán Poás. Grupos pequeños, guía profesional, radios + GPS." />
-<meta property="og:title" content="Nancy Tours Costa Rica · Tours guiados por todo el país" />
-<meta property="og:description" content="Tours guiados por Nancy. 15 años recorriendo Costa Rica — Chirripó, Tortuguero, Bajos del Toro, Volcán Poás. Grupos pequeños, guía profesional, radios + GPS." />
+<title data-i18n-title="meta.home.title">Nancy Tours Costa Rica · Tours guiados por todo el país</title>
+<meta name="description" data-i18n-attr="content:meta.home.desc" content="Tours guiados por Nancy. 15 años recorriendo Costa Rica — Chirripó, Tortuguero, Bajos del Toro, Volcán Poás. Grupos pequeños, guía profesional, radios + GPS." />
+<meta property="og:title" data-i18n-attr="content:meta.home.title" content="Nancy Tours Costa Rica · Tours guiados por todo el país" />
+<meta property="og:description" data-i18n-attr="content:meta.home.desc" content="Tours guiados por Nancy. 15 años recorriendo Costa Rica — Chirripó, Tortuguero, Bajos del Toro, Volcán Poás. Grupos pequeños, guía profesional, radios + GPS." />
 <meta property="og:image" content="img/logo-nancy-800.png" />
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/png" href="img/logo-nancy-mark-transparent.png" />
@@ -14,21 +14,79 @@
 <link rel="manifest" href="site.webmanifest" />
 <meta name="theme-color" content="#b5532e" />
 
+<link rel="preload" as="video" href="img/hero-loop.mp4" type="video/mp4" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="css/tokens.css?v=5" />
-<link rel="stylesheet" href="css/chrome.css?v=5" />
+<link rel="stylesheet" href="css/chrome.css?v=6" />
 <link rel="stylesheet" href="css/home.css?v=2" />
+
+<link rel="canonical" href="https://nancy-tours-cr.vercel.app/" />
+<link rel="alternate" hreflang="es" href="https://nancy-tours-cr.vercel.app/" />
+<link rel="alternate" hreflang="en" href="https://nancy-tours-cr.vercel.app/?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://nancy-tours-cr.vercel.app/" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TravelAgency",
+      "@id": "https://nancy-tours-cr.vercel.app/#org",
+      "name": "Nancy Tours Costa Rica",
+      "url": "https://nancy-tours-cr.vercel.app/",
+      "image": "https://nancy-tours-cr.vercel.app/img/logo-nancy-800.png",
+      "logo": "https://nancy-tours-cr.vercel.app/img/logo-nancy-mark-transparent.png",
+      "description": "Tours guiados por Nancy Villalobos, Licenciada en Turismo, 15 años recorriendo Costa Rica. Grupos pequeños, guía profesional, radios + GPS.",
+      "telephone": "+506-8878-7370",
+      "email": "hola@nancytourscr.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mercedes Norte",
+        "addressLocality": "Heredia",
+        "addressRegion": "Heredia",
+        "postalCode": "40102",
+        "addressCountry": "CR"
+      },
+      "areaServed": { "@type": "Country", "name": "Costa Rica" },
+      "founder": { "@type": "Person", "name": "Nancy Villalobos" },
+      "foundingDate": "2010",
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.facebook.com/CostaRicaFamily/",
+        "https://instagram.com/nancytourscr",
+        "https://wa.me/50688787370"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nancy-tours-cr.vercel.app/#site",
+      "url": "https://nancy-tours-cr.vercel.app/",
+      "name": "Nancy Tours Costa Rica",
+      "inLanguage": ["es-CR", "en"],
+      "publisher": { "@id": "https://nancy-tours-cr.vercel.app/#org" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://nancy-tours-cr.vercel.app/#nancy",
+      "name": "Nancy Villalobos",
+      "jobTitle": "Licenciada en Turismo · Guía profesional",
+      "worksFor": { "@id": "https://nancy-tours-cr.vercel.app/#org" },
+      "knowsLanguage": ["es", "en"]
+    }
+  ]
+}
+</script>
 </head>
 <body class="nt-frame nt-dir-b">
 
-<a href="#contenido" class="nt-skip">Saltar al contenido</a>
+<a href="#contenido" class="nt-skip" data-i18n="nav.skipLink">Saltar al contenido</a>
 
 <!-- ── Nav ───────────────────────────────────────────── -->
 <header class="nt-nav">
-  <a href="/" class="nt-nav-brand" aria-label="Nancy Tours Costa Rica — Inicio">
+  <a href="/" class="nt-nav-brand" data-i18n-attr="aria-label:nav.brand.aria" aria-label="Nancy Tours Costa Rica — Inicio">
     <img src="img/logo-nancy-mark-light.png" alt="" class="nt-nav-mark" />
     <span class="nt-nav-wordmark">
       <span>NANCY</span>
@@ -37,10 +95,10 @@
   </a>
 
   <nav class="nt-nav-links" aria-label="Principal">
-    <a href="/" class="nt-link is-active" data-key="home">Inicio</a>
-    <a href="tours.html" class="nt-link" data-key="tours">Tours</a>
-    <a href="sobre-nancy.html" class="nt-link" data-key="nancy">Sobre Nancy</a>
-    <a href="contacto.html" class="nt-link" data-key="contact">Contacto</a>
+    <a href="/" class="nt-link is-active" data-key="home" data-i18n="nav.home">Inicio</a>
+    <a href="tours.html" class="nt-link" data-key="tours" data-i18n="nav.tours">Tours</a>
+    <a href="sobre-nancy.html" class="nt-link" data-key="nancy" data-i18n="nav.nancy">Sobre Nancy</a>
+    <a href="contacto.html" class="nt-link" data-key="contact" data-i18n="nav.contact">Contacto</a>
     <span class="nt-lang-pill" role="group" aria-label="Idioma">
       <button type="button" data-lang="es" class="nt-lang-btn is-active" aria-pressed="true">ES</button>
       <span class="nt-lang-sep">/</span>
@@ -48,13 +106,13 @@
     </span>
   </nav>
 
-  <button type="button" class="nt-mobile-only nt-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nt-mobile-menu">
+  <button type="button" class="nt-mobile-only nt-hamburger" data-i18n-attr="aria-label:nav.openMenu" aria-label="Abrir menú" aria-expanded="false" aria-controls="nt-mobile-menu">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
   </button>
 
   <a href="contacto.html" class="nt-desktop-only nt-cta-pill">
     <span class="nt-cta-dot" aria-hidden="true"></span>
-    Reservar
+    <span data-i18n="nav.book">Reservar</span>
   </a>
 </header>
 
@@ -65,19 +123,19 @@
       <img src="img/logo-nancy-mark-light.png" alt="" class="nt-nav-mark" />
       <span class="nt-nav-wordmark"><span>NANCY</span> <span class="nt-nav-sub">tours cr</span></span>
     </a>
-    <button type="button" class="nt-mobile-close" aria-label="Cerrar menú">
+    <button type="button" class="nt-mobile-close" data-i18n-attr="aria-label:nav.closeMenu" aria-label="Cerrar menú">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>
     </button>
   </div>
   <nav class="nt-mobile-links" aria-label="Móvil">
-    <a href="/" class="is-active">Inicio</a>
-    <a href="tours.html">Tours</a>
-    <a href="sobre-nancy.html">Sobre Nancy</a>
-    <a href="contacto.html">Contacto</a>
+    <a href="/" class="is-active" data-i18n="nav.home">Inicio</a>
+    <a href="tours.html" data-i18n="nav.tours">Tours</a>
+    <a href="sobre-nancy.html" data-i18n="nav.nancy">Sobre Nancy</a>
+    <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
   </nav>
   <div class="nt-mobile-foot">
     <a href="https://wa.me/50688787370" class="nt-mobile-wa">WhatsApp · +506 8878-7370</a>
-    <a href="contacto.html" class="nt-mobile-reserve">Reservar</a>
+    <a href="contacto.html" class="nt-mobile-reserve" data-i18n="nav.book">Reservar</a>
     <div class="nt-mobile-lang">
       <button type="button" data-lang="es" class="is-active">ES</button>
       <span>/</span>
@@ -97,46 +155,46 @@
     <div class="nt-hero-scrim" aria-hidden="true"></div>
 
     <!-- Procedural audio chip -->
-    <div class="nt-video-chip" role="button" tabindex="0" aria-pressed="false" aria-label="Reproducir sonido de selva">
+    <div class="nt-video-chip" role="button" tabindex="0" aria-pressed="false" data-i18n-attr="aria-label:chip.aria.play" aria-label="Reproducir sonido de selva">
       <div class="nt-chip-row">
-        <span>AUDIO · CHIRRIPÓ</span>
+        <span data-i18n="chip.title">AUDIO · CHIRRIPÓ</span>
         <span class="nt-chip-live" hidden><span class="nt-chip-live-dot"></span>LIVE</span>
       </div>
       <div class="nt-chip-scrub"><div class="nt-chip-scrub-fill"></div></div>
       <div class="nt-chip-row nt-chip-foot">
         <span class="nt-chip-play">▶</span>
-        <span class="nt-chip-label">TOCÁ PARA OÍR</span>
+        <span class="nt-chip-label" data-i18n="chip.play">TOCÁ PARA OÍR</span>
       </div>
     </div>
 
     <div class="nt-hero-text">
       <div class="nt-hero-eyebrow">
         <span class="nt-dot-pulse" aria-hidden="true"></span>
-        EXPERIENCIAS QUE CONECTAN · DESDE 2010
+        <span data-i18n="hero.eyebrow">EXPERIENCIAS QUE CONECTAN · DESDE 2010</span>
       </div>
       <h1 class="nt-hero-h1">
-        Los mejores<br />
-        tours de<br />
-        <span class="nt-hero-accent">Costa Rica.</span>
+        <span data-i18n="hero.h1.l1">Los mejores</span><br />
+        <span data-i18n="hero.h1.l2">tours de</span><br />
+        <span class="nt-hero-accent" data-i18n="hero.h1.l3">Costa Rica.</span>
       </h1>
-      <p class="nt-hero-lead">
+      <p class="nt-hero-lead" data-i18n="hero.lead">
         Tours guiados por Nancy — Licenciada en Turismo, 15 años caminando cada
         volcán, río y catarata de Costa Rica. Equipo de radios, GPS y la calma
         de saber a dónde vamos.
       </p>
       <div class="nt-hero-actions">
-        <a href="tours.html" class="nt-btn nt-btn-primary nt-btn-lg">Próximos tours →</a>
+        <a href="tours.html" class="nt-btn nt-btn-primary nt-btn-lg" data-i18n="hero.cta.tours">Próximos tours →</a>
         <a href="https://wa.me/50688787370" class="nt-btn nt-btn-ghost-dark">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5C18.3 1.3 15.3 0 12 0 5.4 0 0 5.4 0 12c0 2.1.5 4.1 1.5 5.9L0 24l6.2-1.6c1.7 1 3.7 1.5 5.8 1.5h.1c6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4zM12 22h-.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4 1 1.1-3.9-.3-.4C1.8 15.4 1.2 13.7 1.2 12c0-6 4.9-10.9 10.9-10.9 2.9 0 5.6 1.1 7.7 3.2 2.1 2.1 3.2 4.8 3.2 7.7-.1 6-5 10.9-11 10.9z"/></svg>
-          WhatsApp
+          <span data-i18n="hero.cta.wa">WhatsApp</span>
         </a>
       </div>
     </div>
 
     <div class="nt-hero-corner">
-      <div class="nt-corner-stat"><strong>15</strong><span>años en ruta</span></div>
-      <div class="nt-corner-stat"><strong>47</strong><span>destinos cubiertos</span></div>
-      <div class="nt-corner-stat"><strong>4.9</strong><span>★ reseñas</span></div>
+      <div class="nt-corner-stat"><strong>15</strong><span data-i18n="hero.stats.years">años en ruta</span></div>
+      <div class="nt-corner-stat"><strong>47</strong><span data-i18n="hero.stats.destinations">destinos cubiertos</span></div>
+      <div class="nt-corner-stat"><strong>4.9</strong><span data-i18n="hero.stats.reviews">★ reseñas</span></div>
     </div>
   </section>
 
@@ -171,53 +229,51 @@
     <div class="nt-intro-inner">
       <div class="nt-intro-eyebrow">
         <span class="nt-intro-emoji" aria-hidden="true">🌿✨</span>
-        <span>DIME A DÓNDE QUIERES IR</span>
+        <span data-i18n="intro.eyebrow">DIME A DÓNDE QUIERES IR</span>
       </div>
       <h2 id="intro-h" class="nt-intro-h2">
-        Y yo organizo<br />tu <em>aventura</em>.
+        <span data-i18n="intro.h2.l1">Y yo organizo</span><br />
+        <span data-i18n="intro.h2.l2">tu</span> <em data-i18n="intro.h2.l3">aventura</em>.
       </h2>
 
       <div class="nt-intro-lead">
         <p>
-          Creo tours organizados y experiencias personalizadas por todo Costa Rica,
-          diseñadas especialmente para que disfrutes sin preocuparte por nada.
+          <span data-i18n="intro.p1">Creo tours organizados y experiencias personalizadas por todo Costa Rica, diseñadas especialmente para que disfrutes sin preocuparte por nada.</span>
           <span class="nt-intro-emoji-inline" aria-hidden="true">🇨🇷💚</span>
         </p>
         <p>
-          Organizo tours para <strong>grupos grandes desde 10 personas</strong> en adelante,
-          así como <strong>experiencias privadas y personalizadas</strong> para familias,
-          parejas o pequeños grupos de 2, 3 o 5 personas. Cada viaje se adapta a lo que
-          ustedes desean vivir: naturaleza, aventura, descanso, hiking, playas, volcanes,
-          cultura y momentos inolvidables.
+          <span data-i18n="intro.p2.start">Organizo tours para</span>
+          <strong data-i18n="intro.p2.bold1">grupos grandes desde 10 personas</strong>
+          <span data-i18n="intro.p2.mid">en adelante, así como</span>
+          <strong data-i18n="intro.p2.bold2">experiencias privadas y personalizadas</strong>
+          <span data-i18n="intro.p2.end">para familias, parejas o pequeños grupos de 2, 3 o 5 personas. Cada viaje se adapta a lo que ustedes desean vivir: naturaleza, aventura, descanso, hiking, playas, volcanes, cultura y momentos inolvidables.</span>
         </p>
         <p>
-          Tú solo dime qué lugar sueñas conocer y yo me encargo de todo: transporte,
-          organización, recorridos y cada detalle, para que solamente disfrutes,
-          tomes fotografías hermosas y vivas Costa Rica de una manera auténtica y feliz.
+          <span data-i18n="intro.p3">Tú solo dime qué lugar sueñas conocer y yo me encargo de todo: transporte, organización, recorridos y cada detalle, para que solamente disfrutes, tomes fotografías hermosas y vivas Costa Rica de una manera auténtica y feliz.</span>
           <span class="nt-intro-emoji-inline" aria-hidden="true">📸✨</span>
         </p>
       </div>
 
       <ul class="nt-intro-features" aria-label="Tipos de tours">
-        <li><span class="nt-intro-feat-emoji" aria-hidden="true">🌎</span><span>Tours grupales</span></li>
-        <li><span class="nt-intro-feat-emoji" aria-hidden="true">👨‍👩‍👧‍👦</span><span>Tours familiares personalizados</span></li>
-        <li><span class="nt-intro-feat-emoji" aria-hidden="true">🥾</span><span>Hiking y naturaleza</span></li>
-        <li><span class="nt-intro-feat-emoji" aria-hidden="true">🏝️</span><span>Playas, montañas y volcanes</span></li>
-        <li><span class="nt-intro-feat-emoji" aria-hidden="true">✨</span><span>Experiencias hechas a tu gusto</span></li>
+        <li><span class="nt-intro-feat-emoji" aria-hidden="true">🌎</span><span data-i18n="intro.feat1">Tours grupales</span></li>
+        <li><span class="nt-intro-feat-emoji" aria-hidden="true">👨‍👩‍👧‍👦</span><span data-i18n="intro.feat2">Tours familiares personalizados</span></li>
+        <li><span class="nt-intro-feat-emoji" aria-hidden="true">🥾</span><span data-i18n="intro.feat3">Hiking y naturaleza</span></li>
+        <li><span class="nt-intro-feat-emoji" aria-hidden="true">🏝️</span><span data-i18n="intro.feat4">Playas, montañas y volcanes</span></li>
+        <li><span class="nt-intro-feat-emoji" aria-hidden="true">✨</span><span data-i18n="intro.feat5">Experiencias hechas a tu gusto</span></li>
       </ul>
 
       <p class="nt-intro-closer">
-        Tú eliges el destino…<br />
-        <strong>yo hago que el viaje sea inolvidable.</strong>
+        <span data-i18n="intro.closer.l1">Tú eliges el destino…</span><br />
+        <strong data-i18n="intro.closer.l2">yo hago que el viaje sea inolvidable.</strong>
         <span class="nt-intro-emoji-inline" aria-hidden="true">🇨🇷</span>
       </p>
 
       <div class="nt-intro-cta">
-        <a href="https://wa.me/50688787370?text=%C2%A1Hola%20Nancy!%20Me%20gustar%C3%ADa%20que%20me%20organices%20un%20tour." target="_blank" rel="noopener noreferrer" class="nt-btn nt-btn-wa nt-btn-lg">
+        <a href="https://wa.me/50688787370?text=%C2%A1Hola%20Nancy!%20Me%20gustar%C3%ADa%20que%20me%20organices%20un%20tour." target="_blank" rel="noopener noreferrer" class="nt-btn nt-btn-wa nt-btn-lg" data-i18n-wa-msg="intro.cta.wa.msg">
           <span class="nt-wa-icon">w</span>
-          Decime a dónde quieres ir →
+          <span data-i18n="intro.cta.wa">Decime a dónde quieres ir →</span>
         </a>
-        <a href="tours.html" class="nt-btn nt-btn-ghost nt-btn-lg">Ver catálogo de tours</a>
+        <a href="tours.html" class="nt-btn nt-btn-ghost nt-btn-lg" data-i18n="intro.cta.tours">Ver catálogo de tours</a>
       </div>
     </div>
   </section>
@@ -563,7 +619,7 @@
       <div class="nt-about-photo-row">
         <div class="nt-photo nt-about-photo-sm" style="background-image: url(img/hiking-trail.jpg)" aria-hidden="true"></div>
         <div class="nt-about-photo-sm nt-about-logo">
-          <img src="img/logo-nancy-transparent.png" alt="Nancy Tours Costa Rica" />
+          <img src="img/logo-nancy-transparent.png" loading="lazy" alt="Nancy Tours Costa Rica" />
         </div>
       </div>
     </div>
@@ -658,6 +714,7 @@
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.1-.2-.6-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.8.1.2 1.8 2.7 4.3 3.8 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.9 3.3 1.4 5.2 1.4 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.4-.5-4.8-1.4l-.3-.2-2.9.9.9-2.8-.2-.3C3.6 14.7 3 13.4 3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9z"/></svg>
 </a>
 
+<script src="js/i18n.js" defer></script>
 <script src="js/chrome.js" defer></script>
 <script src="js/home.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>

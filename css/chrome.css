@@ -28,6 +28,37 @@ img { max-width: 100%; display: block; }
 
 a { color: inherit; }
 
+/* ── A11y: focus visible (WCAG 2.1 AA) ──────────────────── */
+:focus { outline: none; }
+:focus-visible {
+  outline: 3px solid #b5532e;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.nt-btn:focus-visible,
+.nt-tour-card:focus-visible,
+.nt-book-opt:focus-visible,
+.nt-foot-col a:focus-visible {
+  outline-offset: 4px;
+}
+/* High contrast on dark backgrounds */
+.nt-hero :focus-visible,
+.nt-diff :focus-visible,
+.nt-book :focus-visible,
+.nt-footer :focus-visible {
+  outline-color: #f4ecd8;
+}
+
+/* Reduce motion respect — global */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ── Skip link (a11y) ─────────────────────────────────── */
 .nt-skip {
   position: absolute;

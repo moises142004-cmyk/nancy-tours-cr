@@ -75,10 +75,9 @@
     const buttons = document.querySelectorAll('[data-lang]');
     if (!buttons.length) return;
 
-    let current = 'es';
-    try { current = localStorage.getItem('nt-lang') || 'es'; } catch (e) {}
+    const getLang = () => (window.NT?.i18n?.getLang?.() || 'es');
 
-    const apply = (lang) => {
+    const updateButtonStates = (lang) => {
       buttons.forEach((b) => {
         const isActive = b.dataset.lang === lang;
         b.classList.toggle('is-active', isActive);
@@ -86,25 +85,19 @@
       });
     };
 
-    const notice = () => {
-      const n = document.createElement('div');
-      n.setAttribute('role', 'status');
-      n.setAttribute('aria-live', 'polite');
-      n.className = 'nt-lang-notice';
-      n.innerHTML = '<span class="nt-lang-notice-dot"></span>English version coming soon — WhatsApp Nancy directly, she speaks English.';
-      document.body.appendChild(n);
-      setTimeout(() => n.remove(), 2600);
-    };
-
-    apply(current);
+    updateButtonStates(getLang());
+    // Re-sync on every lang change (covers cases where another page set the lang)
+    document.addEventListener('nt:langchange', (e) => updateButtonStates(e.detail.lang));
 
     buttons.forEach((b) => {
       b.addEventListener('click', () => {
         const next = b.dataset.lang;
-        current = next;
-        try { localStorage.setItem('nt-lang', next); } catch (e) {}
-        apply(next);
-        if (next === 'en') notice();
+        if (window.NT?.i18n?.setLang) {
+          window.NT.i18n.setLang(next);
+        } else {
+          try { localStorage.setItem('nt-lang', next); } catch (e) {}
+          updateButtonStates(next);
+        }
       });
     });
   }
