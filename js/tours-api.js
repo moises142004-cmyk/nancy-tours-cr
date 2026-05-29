@@ -1,11 +1,11 @@
 // Nancy Tours Costa Rica — tours/leads API wrapper
 // =====================================================================
-// Thin, opinionated wrapper around window.NT_SUPABASE. Exposes the
-// three calls the public site actually makes:
+// Thin, opinionated wrapper around window.NT.supabase. Exposes the
+// three calls the public site actually makes under window.NT.api:
 //
-//   NT_API.getTours(opts?)               → camelCase tour rows
-//   NT_API.getTour(slug, opts?)          → single camelCase tour row
-//   NT_API.postInterest({slug, name,
+//   NT.api.getTours(opts?)               → camelCase tour rows
+//   NT.api.getTour(slug, opts?)          → single camelCase tour row
+//   NT.api.postInterest({slug, name,
 //                        whatsapp, numPeople})
 //                                        → {ok, newCount, threshold, derivedState}
 //
@@ -22,13 +22,16 @@
 (function () {
   'use strict';
 
-  if (!window.NT_SUPABASE) {
+  // Ensure the shared NT namespace exists before we read or write to it.
+  window.NT = window.NT || {};
+
+  if (!window.NT.supabase) {
     throw new Error(
-      '[NT_API] window.NT_SUPABASE missing. Load js/supabase-client.js first.'
+      '[NT.api] window.NT.supabase missing. Load js/supabase-client.js first.'
     );
   }
 
-  const sb = window.NT_SUPABASE;
+  const sb = window.NT.supabase;
 
   // ── Cache ───────────────────────────────────────────────────────────
   // sessionStorage so it auto-clears on tab close. 60s TTL is long
@@ -134,7 +137,7 @@
   }
 
   async function getTour(slug, opts) {
-    if (!slug) throw new Error('[NT_API.getTour] slug is required');
+    if (!slug) throw new Error('[NT.api.getTour] slug is required');
     const key = cacheKeyTour(slug);
     const noCache = !!(opts && opts.noCache);
     if (!noCache) {
@@ -165,15 +168,21 @@
   //    the next read by any other component reflects the new lead.
   async function postInterest(payload) {
     if (!payload || typeof payload !== 'object') {
-      throw new Error('[NT_API.postInterest] payload required');
+      throw new Error('[NT.api.postInterest] payload required');
     }
-    const { slug, name, whatsapp, numPeople } = payload;
-    if (!slug) throw new Error('[NT_API.postInterest] slug required');
-    if (!name) throw new Error('[NT_API.postInterest] name required');
-    if (!whatsapp) throw new Error('[NT_API.postInterest] whatsapp required');
+    // Normalize string inputs at the boundary so whitespace-only values
+    // (e.g. "   ") don't slip past the truthy checks below. Mirrors the
+    // `.trim()` pattern in js/contacto.js for form fields.
+    const slug = typeof payload.slug === 'string' ? payload.slug.trim() : payload.slug;
+    const name = typeof payload.name === 'string' ? payload.name.trim() : payload.name;
+    const whatsapp = typeof payload.whatsapp === 'string' ? payload.whatsapp.trim() : payload.whatsapp;
+    const { numPeople } = payload;
+    if (!slug) throw new Error('[NT.api.postInterest] slug required');
+    if (!name) throw new Error('[NT.api.postInterest] name required');
+    if (!whatsapp) throw new Error('[NT.api.postInterest] whatsapp required');
     const n = Number(numPeople);
     if (!Number.isFinite(n) || n < 1) {
-      throw new Error('[NT_API.postInterest] numPeople must be >= 1');
+      throw new Error('[NT.api.postInterest] numPeople must be >= 1');
     }
 
     const insertRow = {
@@ -217,7 +226,7 @@
   }
 
   // ── Public surface ──────────────────────────────────────────────────
-  window.NT_API = {
+  window.NT.api = {
     getTours,
     getTour,
     postInterest,

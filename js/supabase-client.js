@@ -1,7 +1,8 @@
 // Nancy Tours Costa Rica — Supabase client init
 // =====================================================================
 // Initializes the Supabase JS SDK against the nancy_tours Postgres schema.
-// Exposes the configured client as window.NT_SUPABASE.
+// Exposes the configured client as window.NT.supabase (shares the same
+// window.NT namespace used by js/chrome.js for contact info, i18n, etc.).
 //
 // REQUIRES: the official Supabase JS UMD bundle MUST be loaded BEFORE
 // this file, e.g.:
@@ -32,14 +33,19 @@
 
   if (!window.supabase || typeof window.supabase.createClient !== 'function') {
     throw new Error(
-      '[NT_SUPABASE] @supabase/supabase-js UMD bundle not found on window. ' +
+      '[NT.supabase] @supabase/supabase-js UMD bundle not found on window. ' +
       'Load it BEFORE js/supabase-client.js.'
     );
   }
 
+  // Ensure the shared NT namespace exists before we hang anything off it.
+  // Other modules (js/chrome.js, js/tours-api.js) do the same so load
+  // order between them doesn't matter.
+  window.NT = window.NT || {};
+
   // Scope the client to the nancy_tours schema so every from('tours')
   // call resolves to nancy_tours.tours without per-call qualification.
-  window.NT_SUPABASE = window.supabase.createClient(
+  window.NT.supabase = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_PUBLISHABLE_KEY,
     {
