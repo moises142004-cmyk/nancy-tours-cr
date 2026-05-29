@@ -1,0 +1,134 @@
+/* Nancy Tours — interest capture modal
+   ===================================================================
+   Singleton modal opened from any "Me interesa / Sumarme / Me sumo"
+   button. Loaded as a separate stylesheet so the modal can live on any
+   page without bloating the per-page bundles. Class prefix: .nt-modal.
+*/
+
+.nt-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 13, 10, 0.7);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.nt-modal-overlay.is-open { opacity: 1; }
+
+.nt-modal {
+  background: #faf5e7;
+  max-width: 480px;
+  width: 100%;
+  padding: 32px;
+  border-radius: 4px;
+  transform: translateY(12px);
+  transition: transform .25s cubic-bezier(.2, .7, .2, 1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.nt-modal-overlay.is-open .nt-modal { transform: translateY(0); }
+
+.nt-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b6256;
+  float: right;
+  padding: 0;
+  line-height: 1;
+}
+
+.nt-modal-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #b5532e;
+  margin-bottom: 8px;
+}
+
+.nt-modal h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 18px;
+  line-height: 1.1;
+}
+.nt-modal .nt-modal-tour { font-weight: 700; color: #1a160e; }
+
+.nt-modal-form { display: flex; flex-direction: column; gap: 14px; }
+
+.nt-modal-field { display: flex; flex-direction: column; gap: 6px; }
+.nt-modal-field label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #6b6256;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+.nt-modal-field input,
+.nt-modal-field select {
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid rgba(31, 58, 43, 0.2);
+  background: #fff;
+  font-family: inherit;
+  border-radius: 0;
+}
+.nt-modal-field input:focus,
+.nt-modal-field select:focus {
+  outline: 3px solid #b5532e;
+  outline-offset: 2px;
+}
+.nt-modal-field.is-invalid input,
+.nt-modal-field.is-invalid select {
+  border-color: #b5532e;
+  background: rgba(181, 83, 46, 0.04);
+}
+.nt-modal-error {
+  color: #b5532e;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nt-modal-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #3a3328;
+}
+
+.nt-modal-submit {
+  background: #0d7565;
+  color: #fff;
+  padding: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.nt-modal-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nt-modal-foot {
+  font-size: 12px;
+  color: #6b6256;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.nt-modal-success { text-align: center; padding: 24px 0; }
+.nt-modal-success-icon { font-size: 56px; line-height: 1; margin-bottom: 18px; }
+.nt-modal-success h2 { margin: 0 0 12px; }
+.nt-modal-success p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #3a3328;
+}
