@@ -116,7 +116,7 @@
 
       const url = (window.NT && window.NT.contact
         ? window.NT.contact.waMsg(lines.join('\n'))
-        : 'https://wa.me/50689494655?text=' + encodeURIComponent(lines.join('\n')));
+        : 'https://wa.me/50688787370?text=' + encodeURIComponent(lines.join('\n')));
       window.open(url, '_blank', 'noopener,noreferrer');
     });
   }

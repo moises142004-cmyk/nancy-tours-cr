@@ -49,7 +49,7 @@
     if (waLink) {
       const msg = `¡Hola Nancy! Me interesa el tour de ${tour.title}. ¿Cuándo es la próxima salida?`;
       waLink.href = (window.NT && window.NT.contact ? window.NT.contact.waMsg(msg)
-                                                    : 'https://wa.me/50689494655?text=' + encodeURIComponent(msg));
+                                                    : 'https://wa.me/50688787370?text=' + encodeURIComponent(msg));
     }
 
     // Itinerary
