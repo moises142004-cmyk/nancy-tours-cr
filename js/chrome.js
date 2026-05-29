@@ -1,11 +1,25 @@
 // Nancy Tours Costa Rica — shared chrome JS
 // =====================================================================
 // Loaded on every page. Handles:
-//   1. Mobile menu toggle (hamburger → fullscreen overlay)
-//   2. ES/EN language switcher (notice + localStorage)
+//   1. Shared contact constants (WhatsApp, email)
+//   2. Mobile menu toggle (hamburger → fullscreen overlay)
+//   3. ES/EN language switcher (notice + localStorage)
 
 (function () {
   'use strict';
+
+  // ── Shared contact constants ─────────────────────────────────────────
+  // To change Nancy's WhatsApp or email, edit here AND run a search-replace
+  // on .html files (the legacy hrefs are still hard-coded for now —
+  // `grep -rl 50689494655 *.html | xargs sed -i '' 's/.../.../g'`).
+  window.NT = window.NT || {};
+  window.NT.contact = {
+    wa: '50689494655',
+    waUrl: 'https://wa.me/50689494655',
+    waMsg: (message) => 'https://wa.me/50689494655?text=' + encodeURIComponent(String(message)),
+    email: 'hola@nancytourscr.com',
+    mapsQuery: 'https://maps.google.com/?q=Mercedes+Norte+Heredia+Costa+Rica',
+  };
 
   // ── Mobile menu ─────────────────────────────────────────────────────
   function initMobileMenu() {

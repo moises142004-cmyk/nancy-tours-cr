@@ -186,6 +186,22 @@
   border-color: #b5532e;
   box-shadow: 0 0 0 3px rgba(181,83,46,0.12);
 }
+.cp-field input.is-invalid,
+.cp-field select.is-invalid,
+.cp-field textarea.is-invalid {
+  border-color: #b5532e;
+  background: rgba(181,83,46,0.04);
+}
+.cp-check.is-invalid {
+  color: #b5532e;
+}
+.cp-field-error {
+  color: #b5532e;
+  font-size: 12px;
+  margin-top: 6px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
 .cp-field textarea {
   min-height: 120px;
   resize: vertical;

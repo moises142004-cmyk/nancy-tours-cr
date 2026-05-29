@@ -12,6 +12,11 @@
     })[c]);
   }
 
+  // Escape characters that could break out of `url(...)` in a style attribute
+  function escapeCssUrl(s) {
+    return String(s).replace(/[\\"'() <>]/g, (c) => '\\' + c);
+  }
+
   function getTourId() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id') || 'chirripo';
@@ -27,9 +32,9 @@
     const ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute('content', tour.lead);
 
-    // Hero bg
+    // Hero bg — set via style.backgroundImage (the browser handles escaping)
     const heroBg = document.querySelector('[data-td="hero-bg"]');
-    if (heroBg) heroBg.style.backgroundImage = `url(${tour.hero})`;
+    if (heroBg && tour.hero) heroBg.style.backgroundImage = `url("${escapeCssUrl(tour.hero)}")`;
 
     // Simple text fields
     const fields = ['title', 'tag', 'loc', 'elev', 'diff', 'duration', 'cupo', 'minAge', 'price', 'lead', 'blurb', 'nextDate'];
@@ -43,7 +48,8 @@
     const waLink = document.querySelector('[data-td="waLink"]');
     if (waLink) {
       const msg = `¡Hola Nancy! Me interesa el tour de ${tour.title}. ¿Cuándo es la próxima salida?`;
-      waLink.href = 'https://wa.me/50689494655?text=' + encodeURIComponent(msg);
+      waLink.href = (window.NT && window.NT.contact ? window.NT.contact.waMsg(msg)
+                                                    : 'https://wa.me/50689494655?text=' + encodeURIComponent(msg));
     }
 
     // Itinerary
@@ -104,7 +110,7 @@
         const r = (window.TOURS && window.TOURS[slug]) || window.TOURS.default;
         return `
           <a href="tour-detail.html?id=${encodeURIComponent(slug)}" class="td-rel-card">
-            <div class="td-rel-photo" style="background-image: url(${r.hero})">
+            <div class="td-rel-photo" style="background-image: url(&quot;${escapeHtml(escapeCssUrl(r.hero || ''))}&quot;)">
               <span class="td-rel-tag">${escapeHtml(r.tag)}</span>
             </div>
             <div class="td-rel-body">

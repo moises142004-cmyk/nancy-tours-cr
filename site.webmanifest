@@ -1,0 +1,24 @@
+{
+  "name": "Nancy Tours Costa Rica",
+  "short_name": "Nancy Tours",
+  "description": "Tours guiados por Costa Rica con Nancy, Licenciada en Turismo.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0a",
+  "theme_color": "#b5532e",
+  "lang": "es-CR",
+  "icons": [
+    {
+      "src": "/img/logo-nancy-mark-transparent.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/logo-nancy-mark-light.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
