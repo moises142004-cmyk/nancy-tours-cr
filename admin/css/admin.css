@@ -360,3 +360,28 @@ button { cursor: pointer; font-family: inherit; }
   z-index: 9000;
 }
 .adm-flash--bad { background: var(--adm-bad); }
+
+/* ── List editors (Task 18) ──────────────────────────── */
+.adm-list-row {
+  background: rgba(31,58,43,0.04);
+  border-radius: 4px;
+  padding: 14px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.adm-list-row--inline {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 10px;
+}
+.adm-list-row--inline input {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid rgba(31,58,43,0.18);
+  border-radius: 4px;
+  background: #fff;
+  font-family: inherit;
+}
+.adm-row-del { font-size: 12px; padding: 4px 10px; }
