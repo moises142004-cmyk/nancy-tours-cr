@@ -40,3 +40,56 @@ button { cursor: pointer; font-family: inherit; }
 .adm-btn--ghost { background: transparent; color: var(--adm-ink); border-color: var(--adm-ink); }
 .adm-btn--danger { background: var(--adm-bad); }
 .adm-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Login view ──────────────────────────────────────── */
+.adm-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.adm-login-card {
+  background: var(--adm-paper);
+  padding: 40px 32px;
+  border-radius: 6px;
+  box-shadow: var(--adm-shadow);
+  max-width: 360px;
+  width: 100%;
+}
+.adm-login-card h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+.adm-muted { color: var(--adm-muted); margin: 0 0 24px; font-size: 14px; }
+.adm-login-card input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid rgba(31,58,43,0.2);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-family: inherit;
+}
+.adm-login-card input:focus {
+  outline: 3px solid var(--adm-accent);
+  outline-offset: 2px;
+}
+.adm-login-card button {
+  width: 100%;
+  justify-content: center;
+}
+.adm-login-err {
+  color: var(--adm-bad);
+  font-size: 13px;
+  margin: 12px 0 0;
+  font-weight: 600;
+}
+
+@keyframes adm-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+.adm-shake { animation: adm-shake .35s ease-in-out; }
