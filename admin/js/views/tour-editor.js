@@ -32,6 +32,16 @@
     })[c]);
   }
 
+  // Normalize bare-relative hero paths (e.g. "img/x.jpg") to root-absolute
+  // so they resolve from "/" not from "/admin/...". URLs (http/https/data:)
+  // and root-absolute paths pass through unchanged.
+  function heroUrl(s) {
+    const v = String(s || '');
+    if (!v) return '';
+    if (/^(https?:|data:|\/)/i.test(v)) return v;
+    return '/' + v;
+  }
+
   function slugify(s) {
     return String(s || '').toLowerCase()
       .normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -75,7 +85,7 @@
           <div class="adm-field">
             <label>Foto principal</label>
             <div class="adm-photo-drop" data-act="dropzone">
-              <img data-f="heroPreview" src="${escapeHtml(t.hero)}" alt="" ${t.hero ? '' : 'hidden'} />
+              <img data-f="heroPreview" src="${escapeHtml(heroUrl(t.hero))}" alt="" ${t.hero ? '' : 'hidden'} />
               <p>Arrastrá una imagen o clic para elegir.</p>
               <input type="file" accept="image/*" data-f="heroFile" hidden />
             </div>
