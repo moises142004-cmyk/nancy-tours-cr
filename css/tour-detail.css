@@ -360,3 +360,57 @@
   .td-related { padding: 56px 20px; }
   .td-related-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Booking card state variants (interest-driven model) ──────── */
+.td-book-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  margin-bottom: 18px;
+  background: rgba(13,13,10,0.08);
+}
+.td-book[data-td-state="confirmed"] .td-book-state { background: rgba(22,163,74,0.12); color: #16a34a; }
+.td-book[data-td-state="confirmed"] .nt-state-dot { background: #16a34a; }
+.td-book[data-td-state="near_threshold"] .td-book-state { background: rgba(201,154,63,0.16); color: #8e3d20; }
+.td-book[data-td-state="near_threshold"] .nt-state-dot { background: #c99a3f; animation: nt-state-pulse 1.6s ease-in-out infinite; }
+.td-book[data-td-state="postponed"] .td-book-state { background: rgba(181,83,46,0.12); color: #b5532e; }
+.td-book[data-td-state="postponed"] .nt-state-dot { background: #b5532e; }
+.td-book[data-td-state="searching"] .nt-state-dot { background: #c99a3f; }
+
+.td-book-date-block { margin-bottom: 18px; }
+.td-book-date-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #6b6256;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+.td-book-date {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a160e;
+  margin-top: 4px;
+}
+.td-book-date-note { color: #6b6256; font-size: 12px; }
+
+.td-book-progress { margin-bottom: 18px; }
+
+.td-book-actions .td-book-btn {
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.td-book-hint {
+  font-size: 12px;
+  color: #6b6256;
+  line-height: 1.5;
+  margin-top: 12px;
+}

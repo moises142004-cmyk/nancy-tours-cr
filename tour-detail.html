@@ -20,7 +20,7 @@
 
 <link rel="stylesheet" href="css/tokens.css?v=5" />
 <link rel="stylesheet" href="css/chrome.css?v=9" />
-<link rel="stylesheet" href="css/tour-detail.css?v=2" />
+<link rel="stylesheet" href="css/tour-detail.css?v=3" />
 </head>
 <body class="nt-frame nt-dir-b">
 
@@ -126,29 +126,38 @@
       </div>
     </div>
 
-    <aside class="td-book">
-      <div class="td-book-tag">PRÓXIMA SALIDA</div>
-      <div class="td-book-date" data-td="nextDate">—</div>
+    <aside class="td-book" data-td-state="searching">
+      <div class="td-book-state">
+        <span class="nt-state-dot"></span>
+        <span data-td="stateBadge">BUSCANDO INTERESADOS</span>
+      </div>
+
+      <div class="td-book-date-block">
+        <span class="td-book-date-label" data-td="dateLabel">Fecha tentativa</span>
+        <div class="td-book-date" data-td="dateValue">—</div>
+        <small class="td-book-date-note" data-td="dateNote">(sujeta a confirmación de cupo)</small>
+      </div>
+
+      <div class="td-book-progress nt-progress">
+        <div class="nt-progress-bar"><div class="nt-progress-fill" data-td="progressFill" style="width:0%"></div></div>
+        <div class="nt-progress-text" data-td="progressText">—</div>
+      </div>
 
       <div class="td-book-meta">
         <div><span class="td-meta-k">DURACIÓN</span><span class="td-meta-v" data-td="duration"></span></div>
         <div><span class="td-meta-k">NIVEL</span><span class="td-meta-v" data-td="diff"></span></div>
-        <div><span class="td-meta-k">CUPO</span><span class="td-meta-v" data-td="cupo"></span></div>
         <div><span class="td-meta-k">EDAD MÍN.</span><span class="td-meta-v" data-td="minAge"></span></div>
+        <div><span class="td-meta-k">CUPO MÁX.</span><span class="td-meta-v" data-td="maxCapacity"></span></div>
       </div>
 
       <div class="td-price-block">
-        <span class="td-meta-k">POR PERSONA</span>
+        <span class="td-meta-k" data-td="priceLabel">ESTIMADO POR PERSONA</span>
         <strong class="td-price" data-td="price"></strong>
       </div>
 
-      <a href="https://wa.me/50688787370" class="nt-btn nt-btn-wa td-book-btn" data-td="waLink">
-        <span class="nt-wa-icon">w</span>
-        Reservar por WhatsApp
-      </a>
-      <a href="contacto.html" class="nt-btn nt-btn-ghost td-book-btn">Formulario de reserva →</a>
+      <div class="td-book-actions" data-td-actions></div>
 
-      <div class="td-book-hint">Apartá con 50% (SINPE / depósito).<br />El saldo el día del tour.</div>
+      <div class="td-book-hint" data-td="hint">Sin compromiso de pago. Nancy te contacta cuando el tour se confirma.</div>
     </aside>
   </section>
 
@@ -191,7 +200,9 @@
 
 <script src="js/i18n.js" defer></script>
 <script src="js/chrome.js" defer></script>
-<script src="js/tours-data.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js" defer></script>
+<script src="js/supabase-client.js" defer></script>
+<script src="js/tours-api.js" defer></script>
 <script src="js/tour-detail.js" defer></script>
 </body>
 </html>
