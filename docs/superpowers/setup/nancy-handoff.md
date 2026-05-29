@@ -1,6 +1,6 @@
 # Cómo usar tu admin · 2 minutos
 
-1. Abrí <https://nancy-tours-cr.vercel.app/admin/>
+1. Abrí <https://nancytourscr.com/admin/>
 2. Entrá con tu password (la que te di aparte).
 3. El tablero muestra todos los tours, sus estados, y cuánta gente está interesada.
 
