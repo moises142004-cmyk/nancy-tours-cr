@@ -41,7 +41,7 @@
   }
 
   function waLink(msg) {
-    return `https://wa.me/50689494655?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/50688787370?text=${encodeURIComponent(msg)}`;
   }
 
   function actionsHtml(tour) {

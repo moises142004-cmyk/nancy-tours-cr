@@ -79,7 +79,7 @@ If you need to revise the design, work in static HTML/CSS at the root. The JSX i
 - **First person:** "yo me encargo del resto", "mi promesa", "te llevo". Singular, Nancy speaks.
 - **Costa Rican voice:** "vos" (not "tú"), "ticismos" where they fit ("a medida", "salida", "gallo pinto"). Don't over-do it.
 - **No padding language.** "Tours guiados por toda Costa Rica" beats "Una amplia gama de experiencias turísticas...".
-- **Numbers concrete:** "15 años", "47 destinos", "+506 8949-4655". Specific beats vague.
+- **Numbers concrete:** "15 años", "47 destinos", "+506 8878-7370". Specific beats vague.
 
 ## Brand visual rules
 
@@ -98,6 +98,6 @@ If you need to revise the design, work in static HTML/CSS at the root. The JSX i
 
 ## Contact for client
 
-- WhatsApp: +506 8949-4655 (Nancy)
+- WhatsApp: +506 8878-7370 (Nancy)
 - Email: hola@nancytourscr.com
 - All billing on Moises personally during launch phase. Move to Nancy once ICT sello arrives.
