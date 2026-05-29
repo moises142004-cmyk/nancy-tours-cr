@@ -651,3 +651,85 @@ a { color: inherit; }
 @media (max-width: 1024px) {
   .nt-foot-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
+
+/* ── Tour state badges + progress bars (interest-driven model) ─── */
+.nt-state-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(13,13,10,0.85);
+  color: #faf5e7;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  padding: 7px 12px;
+  text-transform: uppercase;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-radius: 4px;
+  z-index: 2;
+}
+.nt-state-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.nt-state--searching .nt-state-dot { background: #c99a3f; }
+.nt-state--near-threshold .nt-state-dot {
+  background: #c99a3f;
+  animation: nt-state-pulse 1.6s ease-in-out infinite;
+}
+.nt-state--confirmed .nt-state-dot { background: #4ade80; }
+.nt-state--postponed .nt-state-dot { background: #b5532e; }
+
+@keyframes nt-state-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.45); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nt-state--near-threshold .nt-state-dot { animation: none; }
+}
+
+.nt-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.nt-progress-bar {
+  height: 6px;
+  background: rgba(31,58,43,0.1);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.nt-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c99a3f, #b5532e);
+  border-radius: 99px;
+  transition: width .6s cubic-bezier(.2,.7,.2,1);
+}
+.nt-state--confirmed .nt-progress-fill { background: #16a34a; }
+
+.nt-progress-text {
+  font-size: 12px;
+  color: #6b6256;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.nt-progress-text strong { color: #1a160e; font-weight: 700; }
+.nt-progress-text .nt-progress-accent { color: #b5532e; font-weight: 700; }
+.nt-state--confirmed .nt-progress-text .nt-progress-accent { color: #16a34a; }
+
+/* Tentative vs confirmed date treatment */
+.nt-date-tentative { color: #6b6256; font-size: 14px; font-weight: 600; }
+.nt-date-tentative .nt-date-num {
+  color: #1a160e;
+  text-decoration: underline dashed #6b6256;
+  text-underline-offset: 4px;
+}
+.nt-date-confirmed { color: #1a160e; font-size: 14px; font-weight: 700; }
+.nt-date-confirmed::before { content: '✓ '; color: #16a34a; }
