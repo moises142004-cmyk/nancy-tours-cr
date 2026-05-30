@@ -23,7 +23,7 @@
           <span class="nt-state-badge"><span class="nt-state-dot"></span>FALTAN ${remaining}</span>
         </div>
         <div class="nt-tour-body">
-          <h3 class="nt-tour-title">${escapeHtml(t.title)}</h3>
+          <h2 class="nt-tour-title">${escapeHtml(t.title)}</h2>
           <div class="nt-tour-loc">${escapeHtml(t.loc || '')}</div>
           <div class="nt-progress">
             <div class="nt-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${threshold}" aria-valuenow="${n}" aria-label="${n} de ${threshold} interesados"><div class="nt-progress-fill" style="width:${pct}%"></div></div>

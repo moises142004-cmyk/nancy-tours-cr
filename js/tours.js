@@ -91,7 +91,7 @@
         </div>
         <div class="nt-tour-body">
           <div>
-            <h3 class="nt-tour-title">${escapeHtml(tour.title)}</h3>
+            <h2 class="nt-tour-title">${escapeHtml(tour.title)}</h2>
             <div class="nt-tour-loc">${escapeHtml(tour.loc || '')}</div>
           </div>
           ${dateBlock(tour)}

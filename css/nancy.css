@@ -146,7 +146,7 @@
   color: #faf5e7;
   padding: 96px 48px;
 }
-.np-credentials .np-eye { color: #b5532e; }
+/* .np-credentials .np-eye color is set in chrome.css (#f4a063 ochre) for WCAG AA on the #1a160e ink background — overriding here would re-fail contrast. */
 .np-credentials-inner { max-width: 1180px; margin: 0 auto; }
 .np-cred-grid {
   display: grid;
@@ -306,7 +306,7 @@
   position: relative;
   max-width: 900px;
 }
-.np-testi .np-eye { color: #b5532e; }
+/* .np-testi .np-eye color is set in chrome.css (#f4a063 ochre) for WCAG AA on the #1f3a2b forest background — overriding here would re-fail contrast. */
 .np-testi-q {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 32px;

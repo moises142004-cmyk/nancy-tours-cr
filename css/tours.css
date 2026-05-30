@@ -209,7 +209,7 @@
   font-size: 11px;
   letter-spacing: 0.22em;
   font-weight: 700;
-  color: #b5532e;
+  color: #f4a063;             /* WCAG AA: 5.92:1 on forest #1f3a2b (terracotta was 2.5:1) */
   margin-bottom: 18px;
 }
 .tp-cta-h2 {

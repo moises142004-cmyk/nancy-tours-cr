@@ -51,8 +51,8 @@
       'chip.title': 'AUDIO · CHIRRIPÓ',
       'chip.play': 'TOCÁ PARA OÍR',
       'chip.playing': 'AVES · SELVA',
-      'chip.aria.play': 'Audio Chirripó · Tocá para oír sonido de selva',
-      'chip.aria.pause': 'Pausar sonido de selva',
+      /* chip.aria.* removed: chip's accessible name is now computed from visible text
+         (WCAG 2.5.3 — label in name). aria-label attribute was removed from the chip. */
 
       // ── Intro de Nancy
       'intro.eyebrow': 'DIME A DÓNDE QUIERES IR',
@@ -197,8 +197,7 @@
       'chip.title': 'AUDIO · CHIRRIPÓ',
       'chip.play': 'TAP TO LISTEN',
       'chip.playing': 'BIRDS · JUNGLE',
-      'chip.aria.play': 'Audio Chirripó · Tap to play jungle sounds',
-      'chip.aria.pause': 'Pause jungle sounds',
+      /* chip.aria.* removed: see ES note above. */
 
       // ── Intro de Nancy
       'intro.eyebrow': 'TELL ME WHERE YOU WANT TO GO',
