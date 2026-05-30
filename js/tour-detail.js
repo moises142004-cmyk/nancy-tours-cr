@@ -194,7 +194,11 @@
     if (ogImg && tour.hero) ogImg.setAttribute('content', absUrl(tour.hero));
 
     const heroBg = document.querySelector('[data-td="hero-bg"]');
-    if (heroBg && tour.hero) heroBg.style.backgroundImage = `url("${escapeCssUrl(tour.hero)}")`;
+    if (heroBg && tour.hero) {
+      // Root-anchor so the rewrite path /tours/<slug> doesn't break relative img/ refs
+      const heroSrc = /^https?:/i.test(tour.hero) ? tour.hero : `/${String(tour.hero).replace(/^\//, '')}`;
+      heroBg.style.backgroundImage = `url("${escapeCssUrl(heroSrc)}")`;
+    }
     ['title', 'tag', 'loc', 'elev', 'lead', 'blurb'].forEach((k) => setText(k, tour[k]));
   }
 
