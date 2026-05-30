@@ -33,7 +33,30 @@
 
   function getTourId() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('id') || 'chirripo';
+    const fromQuery = params.get('id');
+    if (fromQuery) return fromQuery;
+    // Also handle /tours/<slug> clean URL via Vercel rewrite
+    const m = window.location.pathname.match(/^\/tours\/([^/]+)/);
+    if (m) return decodeURIComponent(m[1]);
+    return 'chirripo';
+  }
+
+  function absUrl(maybeRelative) {
+    if (!maybeRelative) return '';
+    if (/^https?:/i.test(maybeRelative)) return maybeRelative;
+    return `https://nancytourscr.com/${String(maybeRelative).replace(/^\//, '')}`;
+  }
+
+  function setNoindex() {
+    let robots = document.querySelector('meta[name="robots"]');
+    if (robots) {
+      robots.setAttribute('content', 'noindex,follow');
+    } else {
+      const m = document.createElement('meta');
+      m.name = 'robots';
+      m.content = 'noindex,follow';
+      document.head.appendChild(m);
+    }
   }
 
   function setText(key, value) {
@@ -155,9 +178,100 @@
     if (ogTitle) ogTitle.setAttribute('content', `${tour.title} · Nancy Tours Costa Rica`);
     const ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute('content', tour.lead || '');
+
+    // Per-tour canonical, hreflang, og:url, og:image
+    const slug = tour.slug;
+    const cleanUrl = `https://nancytourscr.com/tours/${encodeURIComponent(slug)}`;
+    const canonical = document.getElementById('td-canonical');
+    if (canonical) canonical.setAttribute('href', cleanUrl);
+    const hrefEs = document.getElementById('td-hreflang-es');
+    if (hrefEs) hrefEs.setAttribute('href', cleanUrl);
+    const hrefEn = document.getElementById('td-hreflang-en');
+    if (hrefEn) hrefEn.setAttribute('href', cleanUrl + '?lang=en');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', cleanUrl);
+    const ogImg = document.querySelector('meta[property="og:image"]');
+    if (ogImg && tour.hero) ogImg.setAttribute('content', absUrl(tour.hero));
+
     const heroBg = document.querySelector('[data-td="hero-bg"]');
     if (heroBg && tour.hero) heroBg.style.backgroundImage = `url("${escapeCssUrl(tour.hero)}")`;
     ['title', 'tag', 'loc', 'elev', 'lead', 'blurb'].forEach((k) => setText(k, tour[k]));
+  }
+
+  function injectJsonLd(tour) {
+    const slug = tour.slug;
+    const cleanUrl = `https://nancytourscr.com/tours/${encodeURIComponent(slug)}`;
+
+    const trip = {
+      "@type": "TouristTrip",
+      "name": tour.title,
+      "description": tour.lead || tour.blurb || '',
+      "image": tour.hero ? absUrl(tour.hero) : undefined,
+      "touristType": tour.diff || undefined,
+      "itinerary": Array.isArray(tour.itinerary) && tour.itinerary.length
+        ? tour.itinerary.map((d) => ({ "@type": "Place", "name": d.d }))
+        : undefined,
+      "offers": tour.price ? {
+        "@type": "Offer",
+        "price": String(tour.price).replace(/[^0-9.]/g, '') || undefined,
+        "priceCurrency": "USD",
+        "url": cleanUrl,
+        "availability": tour.derivedState === 'confirmed' ? 'https://schema.org/InStock'
+                      : tour.derivedState === 'completed' ? 'https://schema.org/SoldOut'
+                      : 'https://schema.org/PreOrder'
+      } : undefined,
+      "provider": { "@id": "https://nancytourscr.com/#org" },
+      "url": cleanUrl
+    };
+
+    // Strip undefined/null keys (Google's structured-data tester is strict)
+    Object.keys(trip).forEach((k) => {
+      if (trip[k] === undefined || trip[k] === null || trip[k] === '') delete trip[k];
+    });
+    if (trip.offers) {
+      Object.keys(trip.offers).forEach((k) => {
+        if (trip.offers[k] === undefined || trip.offers[k] === null || trip.offers[k] === '') {
+          delete trip.offers[k];
+        }
+      });
+    }
+
+    const breadcrumb = {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://nancytourscr.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tours", "item": "https://nancytourscr.com/tours" },
+        { "@type": "ListItem", "position": 3, "name": tour.title, "item": cleanUrl }
+      ]
+    };
+
+    let faq = null;
+    if (Array.isArray(tour.faq) && tour.faq.length > 0) {
+      faq = {
+        "@type": "FAQPage",
+        "mainEntity": tour.faq.map(([q, a]) => ({
+          "@type": "Question",
+          "name": q,
+          "acceptedAnswer": { "@type": "Answer", "text": a }
+        }))
+      };
+    }
+
+    const graph = [trip, breadcrumb];
+    if (faq) graph.push(faq);
+
+    // Remove any prior instance (e.g., from a previous render)
+    const prior = document.getElementById('td-jsonld');
+    if (prior) prior.remove();
+
+    const ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.id = 'td-jsonld';
+    ld.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": graph
+    });
+    document.head.appendChild(ld);
   }
 
   function renderItinerary(tour) {
@@ -203,13 +317,20 @@
     const slug = getTourId();
     try {
       const tour = await window.NT.api.getTour(slug);
-      if (!tour) throw new Error(`Tour not found: ${slug}`);
+      if (!tour) {
+        setNoindex();
+        const mainEl = document.querySelector('main');
+        if (mainEl) mainEl.innerHTML = `<section style="padding:96px 24px;text-align:center"><h1>Tour no encontrado</h1><p><a href="/tours">← Ver todos los tours</a></p></section>`;
+        return;
+      }
       renderHero(tour);
+      injectJsonLd(tour);
       renderItinerary(tour);
       renderLists(tour);
       renderBookingCard(tour);
     } catch (e) {
       console.error('[NT.tour-detail]', e);
+      setNoindex();
       const mainEl = document.querySelector('main');
       if (mainEl) mainEl.innerHTML = `<section style="padding:96px 24px;text-align:center"><h1>Tour no encontrado</h1><p><a href="/tours">← Ver todos los tours</a></p></section>`;
     }

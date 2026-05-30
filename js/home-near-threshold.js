@@ -18,7 +18,7 @@
     const remaining = Math.max(0, threshold - n);
     const pct = Math.min(100, Math.round((n / threshold) * 100));
     return `
-      <a href="tour-detail.html?id=${encodeURIComponent(t.slug)}" class="nt-tour-card nt-state--near-threshold">
+      <a href="/tours/${encodeURIComponent(t.slug)}" class="nt-tour-card nt-state--near-threshold">
         <div class="nt-tour-photo" style="background-image:url('${escapeHtml(t.hero || '')}')">
           <span class="nt-state-badge"><span class="nt-state-dot"></span>FALTAN ${remaining}</span>
         </div>

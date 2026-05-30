@@ -78,7 +78,7 @@
       : STATE_LABELS[state];
 
     const hero = tour.hero || '';
-    const href = `tour-detail.html?id=${encodeURIComponent(tour.slug)}`;
+    const href = `/tours/${encodeURIComponent(tour.slug)}`;
     const cssClass = STATE_CSS_CLASS[state] || '';
     const n = tour.interested || 0;
     const threshold = tour.threshold || 1;
