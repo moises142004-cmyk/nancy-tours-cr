@@ -39,9 +39,15 @@
   cursor: pointer;
   color: #6b6256;
   float: right;
-  padding: 0;
+  padding: 10px;
+  margin: -10px -10px 0 0;
   line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 4px;
 }
+.nt-modal-close:hover { background: rgba(31,58,43,0.06); }
+.nt-modal-close:focus-visible { outline: 3px solid #b5532e; outline-offset: 2px; }
 
 .nt-modal-eyebrow {
   font-size: 11px;
