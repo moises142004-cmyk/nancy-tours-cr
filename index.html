@@ -1,14 +1,24 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CR">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title data-i18n-title="meta.home.title">Nancy Tours Costa Rica · Tours guiados por todo el país</title>
-<meta name="description" data-i18n-attr="content:meta.home.desc" content="Tours guiados por Nancy. 15 años recorriendo Costa Rica — Chirripó, Tortuguero, Bajos del Toro, Volcán Poás. Grupos pequeños, guía profesional, radios + GPS." />
+<meta name="description" data-i18n-attr="content:meta.home.desc" content="Tours guiados por toda Costa Rica con Nancy Villalobos, Lic. en Turismo. 15 años, +200 salidas: Chirripó, Tortuguero, Bajos del Toro, Cavernas de Venado y más. Grupos pequeños, radios + GPS. Reservá por WhatsApp." />
 <meta property="og:title" data-i18n-attr="content:meta.home.title" content="Nancy Tours Costa Rica · Tours guiados por todo el país" />
-<meta property="og:description" data-i18n-attr="content:meta.home.desc" content="Tours guiados por Nancy. 15 años recorriendo Costa Rica — Chirripó, Tortuguero, Bajos del Toro, Volcán Poás. Grupos pequeños, guía profesional, radios + GPS." />
+<meta property="og:description" data-i18n-attr="content:meta.home.desc" content="Tours guiados por toda Costa Rica con Nancy Villalobos, Lic. en Turismo. 15 años, +200 salidas: Chirripó, Tortuguero, Bajos del Toro, Cavernas de Venado y más. Grupos pequeños, radios + GPS. Reservá por WhatsApp." />
 <meta property="og:image" content="img/logo-nancy-800.png" />
 <meta property="og:type" content="website" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta property="og:url" content="https://nancytourscr.com/" />
+<meta property="og:locale" content="es_CR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:site_name" content="Nancy Tours Costa Rica" />
+<meta name="author" content="Nancy Villalobos" />
+<meta name="geo.region" content="CR-H" />
+<meta name="geo.placename" content="Heredia, Costa Rica" />
+<meta name="geo.position" content="9.9981;-84.1167" />
+<meta name="ICBM" content="9.9981, -84.1167" />
 <link rel="icon" type="image/png" href="img/logo-nancy-mark-transparent.png" />
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="manifest" href="site.webmanifest" />
@@ -20,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="css/tokens.css?v=5" />
-<link rel="stylesheet" href="css/chrome.css?v=9" />
+<link rel="stylesheet" href="css/chrome.css?v=10" />
 <link rel="stylesheet" href="css/home.css?v=5" />
 
 <link rel="canonical" href="https://nancytourscr.com/" />
@@ -87,7 +97,7 @@
 <!-- ── Nav ───────────────────────────────────────────── -->
 <header class="nt-nav">
   <a href="/" class="nt-nav-brand" data-i18n-attr="aria-label:nav.brand.aria" aria-label="Nancy Tours CR — Inicio">
-    <img src="img/logo-nancy-mark-light.png" alt="" class="nt-nav-mark" />
+    <img src="img/logo-nancy-mark-light.png" alt="Nancy Tours Costa Rica" class="nt-nav-mark" />
     <span class="nt-nav-wordmark">
       <span>NANCY</span>
       <span class="nt-nav-sub">tours&nbsp;cr</span>
@@ -96,9 +106,9 @@
 
   <nav class="nt-nav-links" aria-label="Principal">
     <a href="/" class="nt-link is-active" data-key="home" data-i18n="nav.home">Inicio</a>
-    <a href="tours.html" class="nt-link" data-key="tours" data-i18n="nav.tours">Tours</a>
-    <a href="sobre-nancy.html" class="nt-link" data-key="nancy" data-i18n="nav.nancy">Sobre Nancy</a>
-    <a href="contacto.html" class="nt-link" data-key="contact" data-i18n="nav.contact">Contacto</a>
+    <a href="/tours" class="nt-link" data-key="tours" data-i18n="nav.tours">Tours</a>
+    <a href="/sobre-nancy" class="nt-link" data-key="nancy" data-i18n="nav.nancy">Sobre Nancy</a>
+    <a href="/contacto" class="nt-link" data-key="contact" data-i18n="nav.contact">Contacto</a>
     <span class="nt-lang-pill" role="group" aria-label="Idioma">
       <button type="button" data-lang="es" class="nt-lang-btn is-active" aria-pressed="true">ES</button>
       <span class="nt-lang-sep">/</span>
@@ -110,7 +120,7 @@
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
   </button>
 
-  <a href="contacto.html" class="nt-desktop-only nt-cta-pill">
+  <a href="/contacto" class="nt-desktop-only nt-cta-pill">
     <span class="nt-cta-dot" aria-hidden="true"></span>
     <span data-i18n="nav.book">Reservar</span>
   </a>
@@ -129,13 +139,13 @@
   </div>
   <nav class="nt-mobile-links" aria-label="Móvil">
     <a href="/" class="is-active" data-i18n="nav.home">Inicio</a>
-    <a href="tours.html" data-i18n="nav.tours">Tours</a>
-    <a href="sobre-nancy.html" data-i18n="nav.nancy">Sobre Nancy</a>
-    <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
+    <a href="/tours" data-i18n="nav.tours">Tours</a>
+    <a href="/sobre-nancy" data-i18n="nav.nancy">Sobre Nancy</a>
+    <a href="/contacto" data-i18n="nav.contact">Contacto</a>
   </nav>
   <div class="nt-mobile-foot">
-    <a href="https://wa.me/50688787370" class="nt-mobile-wa">WhatsApp · +506 8878-7370</a>
-    <a href="contacto.html" class="nt-mobile-reserve" data-i18n="nav.book">Reservar</a>
+    <a href="https://wa.me/50688787370" class="nt-mobile-wa" target="_blank" rel="noopener noreferrer">WhatsApp · +506 8878-7370</a>
+    <a href="/contacto" class="nt-mobile-reserve" data-i18n="nav.book">Reservar</a>
     <div class="nt-mobile-lang">
       <button type="button" data-lang="es" class="is-active">ES</button>
       <span>/</span>
@@ -183,8 +193,8 @@
         de saber a dónde vamos.
       </p>
       <div class="nt-hero-actions">
-        <a href="tours.html" class="nt-btn nt-btn-primary nt-btn-lg" data-i18n="hero.cta.tours">Próximos tours →</a>
-        <a href="https://wa.me/50688787370" class="nt-btn nt-btn-ghost-dark">
+        <a href="/tours" class="nt-btn nt-btn-primary nt-btn-lg" data-i18n="hero.cta.tours">Próximos tours →</a>
+        <a href="https://wa.me/50688787370" class="nt-btn nt-btn-ghost-dark" target="_blank" rel="noopener noreferrer">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5C18.3 1.3 15.3 0 12 0 5.4 0 0 5.4 0 12c0 2.1.5 4.1 1.5 5.9L0 24l6.2-1.6c1.7 1 3.7 1.5 5.8 1.5h.1c6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4zM12 22h-.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4 1 1.1-3.9-.3-.4C1.8 15.4 1.2 13.7 1.2 12c0-6 4.9-10.9 10.9-10.9 2.9 0 5.6 1.1 7.7 3.2 2.1 2.1 3.2 4.8 3.2 7.7-.1 6-5 10.9-11 10.9z"/></svg>
           <span data-i18n="hero.cta.wa">WhatsApp</span>
         </a>
@@ -230,7 +240,7 @@
           <div class="nt-eyebrow-dark" data-i18n="soonish.eyebrow">★ TOURS QUE CASI SE LANZAN</div>
           <h2 id="soonish-h" class="nt-h2" data-i18n="soonish.h2">Faltan pocos para que estos salgan.</h2>
         </div>
-        <a href="tours.html" class="nt-view-all" data-i18n="soonish.viewAll">Ver todos →</a>
+        <a href="/tours" class="nt-view-all" data-i18n="soonish.viewAll">Ver todos →</a>
       </div>
       <div id="nt-soonish-grid" class="nt-tour-grid"></div>
     </div>
@@ -287,7 +297,7 @@
           <span class="nt-wa-icon">w</span>
           <span data-i18n="intro.cta.wa">Decime a dónde quieres ir →</span>
         </a>
-        <a href="tours.html" class="nt-btn nt-btn-ghost nt-btn-lg" data-i18n="intro.cta.tours">Ver catálogo de tours</a>
+        <a href="/tours" class="nt-btn nt-btn-ghost nt-btn-lg" data-i18n="intro.cta.tours">Ver catálogo de tours</a>
       </div>
     </div>
   </section>
@@ -299,7 +309,7 @@
         <div class="nt-eyebrow-dark">01 / TOURS ABIERTOS</div>
         <h2 id="tours-h" class="nt-h2">Cada salida, una historia distinta.</h2>
       </div>
-      <a href="tours.html" class="nt-view-all">Calendario completo →</a>
+      <a href="/tours" class="nt-view-all">Calendario completo →</a>
     </div>
 
     <div class="nt-tour-grid">
@@ -626,7 +636,7 @@
         cansados, pero felices.”
       </p>
       <div class="nt-signature">— Nancy Villalobos, Lic. Turismo</div>
-      <a href="sobre-nancy.html" class="nt-btn nt-btn-primary nt-btn--mt">Conocé mi historia →</a>
+      <a href="/sobre-nancy" class="nt-btn nt-btn-primary nt-btn--mt">Conocé mi historia →</a>
     </div>
     <div class="nt-about-media">
       <div class="nt-photo nt-about-photo-big" style="background-image: url(img/chirripo-sign.jpg)" aria-hidden="true"></div>
@@ -646,15 +656,15 @@
       Decime <em>cuándo</em><br />y armamos el resto.
     </h2>
     <div class="nt-book-opts">
-      <a href="https://wa.me/50688787370" class="nt-book-opt nt-book-opt--prim">
+      <a href="https://wa.me/50688787370" class="nt-book-opt nt-book-opt--prim" target="_blank" rel="noopener noreferrer">
         <div class="nt-book-label">WhatsApp</div>
         <div class="nt-book-foot"><span>Respuesta en el día</span><span aria-hidden="true">→</span></div>
       </a>
-      <a href="contacto.html#pago" class="nt-book-opt">
+      <a href="/contacto#pago" class="nt-book-opt">
         <div class="nt-book-label">SINPE móvil</div>
         <div class="nt-book-foot"><span>Para apartar tu cupo</span><span aria-hidden="true">→</span></div>
       </a>
-      <a href="contacto.html#pago" class="nt-book-opt">
+      <a href="/contacto#pago" class="nt-book-opt">
         <div class="nt-book-label">Depósito bancario</div>
         <div class="nt-book-foot"><span>BN / BAC</span><span aria-hidden="true">→</span></div>
       </a>
@@ -681,7 +691,7 @@
         Heredia, Mercedes Norte. ICT en trámite.
       </p>
       <div class="nt-foot-social">
-        <a href="https://wa.me/50688787370">WHATSAPP</a>
+        <a href="https://wa.me/50688787370" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
         <a href="https://instagram.com/nancytourscr">INSTAGRAM</a>
         <a href="https://www.facebook.com/CostaRicaFamily/photos?locale=es_LA">FACEBOOK</a>
       </div>
@@ -689,9 +699,9 @@
     <div class="nt-foot-col">
       <h3>Navegación</h3>
       <a href="/">Inicio</a>
-      <a href="tours.html">Todos los tours</a>
-      <a href="sobre-nancy.html">Sobre Nancy</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="/tours">Todos los tours</a>
+      <a href="/sobre-nancy">Sobre Nancy</a>
+      <a href="/contacto">Contacto</a>
     </div>
     <div class="nt-foot-col">
       <h3>Tours destacados</h3>
@@ -699,12 +709,12 @@
       <a href="tour-detail.html?id=bajos-toro">Bajos del Toro</a>
       <a href="tour-detail.html?id=tortuguero">Tortuguero</a>
       <a href="tour-detail.html?id=ballenas-uvita">Ballenas Uvita</a>
-      <a href="tours.html">Ver todos →</a>
+      <a href="/tours">Ver todos →</a>
     </div>
     <div class="nt-foot-col">
       <h3>Contacto</h3>
-      <a href="https://wa.me/50688787370">+506 8878-7370</a>
-      <a href="https://wa.me/50688787370">WhatsApp</a>
+      <a href="https://wa.me/50688787370" target="_blank" rel="noopener noreferrer">+506 8878-7370</a>
+      <a href="https://wa.me/50688787370" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       <a href="mailto:hola@nancytourscr.com">hola@nancytourscr.com</a>
       <a href="https://maps.google.com/?q=Mercedes+Norte+Heredia+Costa+Rica" target="_blank" rel="noopener noreferrer">Heredia, Mercedes Norte</a>
     </div>
@@ -716,7 +726,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/50688787370" class="nt-wa-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Nancy">
+<a href="https://wa.me/50688787370" class="nt-wa-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Nancy (abre en nueva pestaña)">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.1-.2-.6-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.8.1.2 1.8 2.7 4.3 3.8 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5c1.5.9 3.3 1.4 5.2 1.4 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.4-.5-4.8-1.4l-.3-.2-2.9.9.9-2.8-.2-.3C3.6 14.7 3 13.4 3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9z"/></svg>
 </a>
 

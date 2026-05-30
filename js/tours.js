@@ -80,9 +80,12 @@
     const hero = tour.hero || '';
     const href = `tour-detail.html?id=${encodeURIComponent(tour.slug)}`;
     const cssClass = STATE_CSS_CLASS[state] || '';
+    const n = tour.interested || 0;
+    const threshold = tour.threshold || 1;
+    const ariaLabel = `${escapeHtml(tour.title)} — ${escapeHtml(STATE_LABELS[state] || '')}, ${escapeHtml(tour.tentativeDate || '')}, desde ${escapeHtml(tour.price || '')}`;
 
     return `
-      <a href="${href}" class="nt-tour-card ${cssClass}">
+      <a href="${href}" class="nt-tour-card ${cssClass}" aria-label="${ariaLabel}">
         <div class="nt-tour-photo" style="background-image: url('${escapeHtml(hero)}')">
           <span class="nt-state-badge"><span class="nt-state-dot"></span>${escapeHtml(badgeText)}</span>
         </div>
@@ -93,7 +96,7 @@
           </div>
           ${dateBlock(tour)}
           <div class="nt-progress">
-            <div class="nt-progress-bar"><div class="nt-progress-fill" style="width: ${progressPercent(tour)}%"></div></div>
+            <div class="nt-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${threshold}" aria-valuenow="${n}" aria-label="${n} de ${threshold} interesados"><div class="nt-progress-fill" style="width: ${progressPercent(tour)}%"></div></div>
             <div class="nt-progress-text">${progressText(tour)}</div>
           </div>
           <div class="nt-tour-foot">
@@ -132,9 +135,10 @@
   function wireFilters(tours) {
     document.querySelectorAll('.tp-state-filter').forEach((btn) => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.tp-state-filter').forEach((b) =>
-          b.classList.toggle('is-active', b === btn)
-        );
+        document.querySelectorAll('.tp-state-filter').forEach((b) => {
+          b.classList.toggle('is-active', b === btn);
+          b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+        });
         render(tours, btn.dataset.filter);
       });
     });

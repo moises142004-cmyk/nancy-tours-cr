@@ -52,11 +52,11 @@
         <a href="${waLink(msg)}" target="_blank" rel="noopener noreferrer" class="nt-btn nt-btn-wa td-book-btn">
           <span class="nt-wa-icon">w</span>Reservar por WhatsApp
         </a>
-        <a href="contacto.html" class="nt-btn nt-btn-ghost td-book-btn">Formulario de reserva →</a>
+        <a href="/contacto" class="nt-btn nt-btn-ghost td-book-btn">Formulario de reserva →</a>
       `;
     }
     if (state === 'completed') {
-      return `<a href="tours.html" class="nt-btn nt-btn-ghost td-book-btn">Ver tours abiertos →</a>`;
+      return `<a href="/tours" class="nt-btn nt-btn-ghost td-book-btn">Ver tours abiertos →</a>`;
     }
     const cta = state === 'near_threshold' ? 'Sumarme al tour'
               : state === 'postponed' ? 'Me sumo en esta fecha'
@@ -91,6 +91,14 @@
     const t = tour.threshold || 1;
     const fill = document.querySelector('[data-td="progressFill"]');
     if (fill) fill.style.width = (isConfirmed ? 100 : Math.min(100, Math.round((n / t) * 100))) + '%';
+    // Update progressbar ARIA attributes
+    const progressBar = document.querySelector('.td-book-progress .nt-progress-bar');
+    if (progressBar) {
+      progressBar.setAttribute('aria-valuemin', '0');
+      progressBar.setAttribute('aria-valuemax', String(t));
+      progressBar.setAttribute('aria-valuenow', String(Math.min(n, t)));
+      progressBar.setAttribute('aria-label', `${n} de ${t} interesados`);
+    }
     const text = document.querySelector('[data-td="progressText"]');
     if (text) {
       const max = tour.maxCapacity || t;
@@ -203,7 +211,7 @@
     } catch (e) {
       console.error('[NT.tour-detail]', e);
       const mainEl = document.querySelector('main');
-      if (mainEl) mainEl.innerHTML = `<section style="padding:96px 24px;text-align:center"><h1>Tour no encontrado</h1><p><a href="tours.html">← Ver todos los tours</a></p></section>`;
+      if (mainEl) mainEl.innerHTML = `<section style="padding:96px 24px;text-align:center"><h1>Tour no encontrado</h1><p><a href="/tours">← Ver todos los tours</a></p></section>`;
     }
   }
 
