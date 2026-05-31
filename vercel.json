@@ -4,6 +4,7 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/sitemap.xml", "destination": "/api/sitemap.xml" },
+    { "source": "/tours", "destination": "/api/tours-page" },
     { "source": "/tours/:slug", "destination": "/tour-detail?id=:slug" }
   ],
   "headers": [

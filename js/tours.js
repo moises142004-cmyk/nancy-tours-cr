@@ -146,7 +146,38 @@
 
   async function main() {
     try {
-      const tours = await window.NT.api.getTours();
+      // Prefer SSR-embedded data so filter chips work without an extra Supabase
+      // round-trip. /api/tours-page renders the cards server-side and embeds the
+      // raw tour rows in #tp-data. Fall back to a live API fetch if missing
+      // (e.g. dev server, direct tours.html visit, or function failed).
+      let tours;
+      const dataEl = document.getElementById('tp-data');
+      if (dataEl && dataEl.textContent) {
+        try {
+          const raw = JSON.parse(dataEl.textContent);
+          // Server gives us snake_case PostgREST fields — map to camelCase so
+          // renderCard() (which expects derivedState, tentativeDate, etc.) works.
+          tours = raw.map((t) => ({
+            slug: t.slug,
+            title: t.title,
+            loc: t.loc,
+            hero: t.hero,
+            state: t.state,
+            threshold: t.threshold,
+            maxCapacity: t.max_capacity,
+            interested: t.interested,
+            tentativeDate: t.tentative_date,
+            confirmedDate: t.confirmed_date,
+            price: t.price,
+            derivedState: t.derived_state,
+          }));
+        } catch (e) {
+          console.warn('[NT.tours] failed to parse SSR data, falling back to API', e);
+        }
+      }
+      if (!tours) {
+        tours = await window.NT.api.getTours();
+      }
       render(tours, 'all');
       wireFilters(tours);
     } catch (e) {
